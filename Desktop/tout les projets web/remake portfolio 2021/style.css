@@ -31,7 +31,7 @@ html{
     background-repeat: no-repeat;
     position: absolute;
     z-index: -1;
-    filter: grayscale(100%);
+    filter: grayscale(100%) brightness(40%);
 }
 
 #smokeOverlay{
