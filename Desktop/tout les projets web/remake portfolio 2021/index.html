@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tommy Audet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="main">
+
+    <div id="background">
+
+    </div>
+
+    <div id="smokeOverlay">
+       <!-- <img class="smoke" src="image/smoke.png" alt="">
+       <img class="smoke" src="image/smoke.png" alt="">
+       <img class="smoke" src="image/smoke.png" alt="">
+       <img class="smoke" src="image/smoke.png" alt="">
+       <img class="smoke" src="image/smoke.png" alt="">
+       <img class="smoke" src="image/smoke.png" alt="">
+       <img class="smoke" src="image/smoke.png" alt="">
+       <img class="smoke" src="image/smoke.png" alt="">
+       <img class="smoke" src="image/smoke.png" alt="">
+       <img class="smoke" src="image/smoke.png" alt="">
+       <img class="smoke" src="image/smoke.png" alt="">
+       <img class="smoke" src="image/smoke.png" alt="">
+       <img class="smoke" src="image/smoke.png" alt="">
+       <img class="smoke" src="image/smoke.png" alt="">
+       <img class="smoke" src="image/smoke.png" alt="">
+       <img class="smoke" src="image/smoke.png" alt=""> -->
+
+       <div class="smokeTest">
+        <img class="smoke" src="image/smoke.png" alt="">
+       </div>
+       <div class="smokeTest">
+        <img class="smoke" src="image/smoke.png" alt="">
+       </div>
+       <div class="smokeTest">
+        <img class="smoke" src="image/smoke.png" alt="">
+       </div>
+       <div class="smokeTest">
+        <img class="smoke" src="image/smoke.png" alt="">
+       </div>
+       <div class="smokeTest">
+        <img class="smoke" src="image/smoke.png" alt="">
+       </div>
+       <div class="smokeTest">
+        <img class="smoke" src="image/smoke.png" alt="">
+       </div>
+       <div class="smokeTest">
+        <img class="smoke" src="image/smoke.png" alt="">
+       </div>
+       <div class="smokeTest">
+        <img class="smoke" src="image/smoke.png" alt="">
+       </div>
+       <div class="smokeTest">
+        <img class="smoke" src="image/smoke.png" alt="">
+       </div>
+       <div class="smokeTest">
+        <img class="smoke" src="image/smoke.png" alt="">
+       </div>
+       <div class="smokeTest">
+        <img class="smoke" src="image/smoke.png" alt="">
+       </div>
+       <div class="smokeTest">
+        <img class="smoke" src="image/smoke.png" alt="">
+       </div>
+       <div class="smokeTest">
+        <img class="smoke" src="image/smoke.png" alt="">
+       </div>
+       <div class="smokeTest">
+        <img class="smoke" src="image/smoke.png" alt="">
+       </div>
+       <div class="smokeTest">
+        <img class="smoke" src="image/smoke.png" alt="">
+       </div>
+       <div class="smokeTest">
+        <img class="smoke" src="image/smoke.png" alt="">
+       </div>
+
+
+
+
+
+        <!-- <div class="test"></div> -->
+    </div>
+
+    <nav id="navbarContainer">
+        <p>Tommy Audet</p>
+        <a href="">Voir tout les projets</a>
+    </nav>
+    
+    <div id="contentContainer">
+
+    </div>
+
+    <div id="footerContainer">
+
+    </div>
+
+    <script>
+
+let bg = {
+    Container : document.getElementById("background"), 
+    Url : document.getElementById("background").style,
+    smokeOverlay : document.querySelector("#smokeOverlay"),
+    smokeOverlayImg : document.querySelectorAll(".smokeTest"),
+    ImgNames : ["background1.jpg", "background2.jpg", "background3.jpg", "background4.jpg"],
+    Indx : 0,
+
+    addWheelListenner : addWheelListenner = () =>{
+        document.onwheel = () =>{
+            bg.Indx ++
+            console.log(bg.Indx);
+            bg.smokeOverlayImg.forEach(function(element){
+                element.classList.remove("smokeTest");
+                setTimeout(function(){
+                    element.classList.add("smokeTest");
+                    }, 1);
+            });
+
+            if(bg.Indx > bg.ImgNames.length -1){
+                bg.Indx = 0;
+            }
+            bg.Url.backgroundImage = "url('image/background/" + bg.ImgNames[bg.Indx] + "')";
+
+        }
+    }
+}
+
+bg.addWheelListenner();
+// let hey = 0;
+//         document.onwheel = function(){
+//             hey++
+//             console.log(hey);
+//             };
+    </script>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

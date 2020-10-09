@@ -1,0 +1,424 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 16px;
+    overflow-x: hidden;
+}
+
+
+#main{
+    display: grid;
+    grid-template-areas:
+    "navbarContainer"
+    "contentContainer"
+    "footerContainer"
+    ;
+    grid-template-rows: 8rem 1fr 8rem;
+    grid-gap: 3px;
+    height: 100vh;
+    width: 100vw;
+}
+
+#background{
+    height: 100vh;
+    width: 100vw;
+    background-image: url("image/background/background1.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: -1;
+    filter: grayscale(100%);
+}
+
+#smokeOverlay{
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    display: grid;
+    grid-template-columns: 25vw 25vw 25vw 25vw;
+    grid-template-rows: 25vh 25vh 25vh 25vh;
+    justify-content: center;
+    grid-gap: 0.3rem;
+
+}
+
+.smokeTest:nth-child(1){
+    position: relative;
+    animation: goAway1 1.2s  linear forwards;
+}
+.smokeTest:nth-child(2){
+    position: relative;
+    animation: goAway2 1.2s  linear forwards;
+}
+.smokeTest:nth-child(3){
+    position: relative;
+    animation: goAway3 1.2s  linear forwards;
+}
+.smokeTest:nth-child(4){
+    position: relative;
+    animation: goAway4 1.2s  linear forwards;
+}
+.smokeTest:nth-child(5){
+    position: relative;
+    animation: goAway5 1.2s  linear forwards;
+}
+.smokeTest:nth-child(6){
+    position: relative;
+    animation: goAway6 1.2s  linear forwards;
+}
+
+
+.smokeTest:nth-child(7){
+    position: relative;
+    animation: goAway7 1.2s  linear forwards;
+}
+
+.smokeTest:nth-child(8){
+    position: relative;
+    animation: goAway8 1.2s  linear forwards;
+}
+
+.smokeTest:nth-child(9){
+    position: relative;
+    animation: goAway9 1.2s  linear forwards;
+}
+
+.smokeTest:nth-child(10){
+    position: relative;
+    animation: goAway10 1.2s  linear forwards;
+}
+
+.smokeTest:nth-child(11){
+    position: relative;
+    animation: goAway11 1.2s  linear forwards;
+}
+
+.smokeTest:nth-child(12){
+    position: relative;
+    animation: goAway12 1.2s  linear forwards;
+}
+
+.smokeTest:nth-child(13){
+    position: relative;
+    animation: goAway13 1.2s  linear forwards;
+}
+
+.smokeTest:nth-child(14){
+    position: relative;
+    animation: goAway14 1.2s  linear forwards;
+}
+
+.smokeTest:nth-child(15){
+    position: relative;
+    animation: goAway15 1.2s  linear forwards;
+}
+
+.smokeTest:nth-child(16){
+    position: relative;
+    animation: goAway16 1.2s  linear forwards;
+}
+
+
+
+@keyframes goAway1{
+    from{
+        left: 0;
+        top: 0;
+        transform: scale(1);
+        opacity: 1;
+    }
+    to{
+        left: -50vw;
+        top: -50vh;
+        transform: scale(2.8);
+        opacity: 0;
+    }
+}
+
+@keyframes goAway2{
+    from{
+        left: 0;
+        top: 0;
+        transform: scale(1);
+        opacity: 1;
+    }
+    to{
+        left: -50vw;
+        top: -50vh;
+        transform: scale(2.8);
+        opacity: 0;
+    }
+}
+
+@keyframes goAway3{
+    from{
+        left: 0;
+        top: 0;
+        transform: scale(1);
+        opacity: 1;
+    }
+    to{
+        left: 50vw;
+        top: -50vh;
+        transform: scale(2.8);
+        opacity: 0;
+    }
+}
+
+@keyframes goAway4{
+    from{
+        left: 0;
+        top: 0;
+        transform: scale(1);
+        opacity: 1;
+    }
+    to{
+        left: 50vw;
+        top: -50vh;
+        transform: scale(2.8);
+        opacity: 0;
+    }
+}
+
+@keyframes goAway5{
+    from{
+        left: 0;
+        top: 0;
+        transform: scale(1);
+        opacity: 1;
+    }
+    to{
+        left: -50vw;
+        top: -50vh;
+        transform: scale(2.8);
+        opacity: 0;
+    }
+}
+
+@keyframes goAway6{
+    from{
+        left: 0;
+        top: 0;
+        transform: scale(1);
+        opacity: 1;
+    }
+    to{
+        left: -50vw;
+        top: -50vh;
+        transform: scale(2.8);
+        opacity: 0;
+    }
+}
+
+@keyframes goAway7{
+    from{
+        left: 0;
+        top: 0;
+        transform: scale(1);
+        opacity: 1;
+    }
+    to{
+        left: 50vw;
+        top: -50vh;
+        transform: scale(2.8);
+        opacity: 0;
+    }
+}
+
+@keyframes goAway8{
+    from{
+        left: 0;
+        top: 0;
+        transform: scale(1);
+        opacity: 1;
+    }
+    to{
+        left: 50vw;
+        top: -50vh;
+        transform: scale(2.8);
+        opacity: 0;
+    }
+}
+
+@keyframes goAway9{
+    from{
+        left: 0;
+        top: 0;
+        transform: scale(1);
+        opacity: 1;
+    }
+    to{
+        left: -50vw;
+        top: 50vh;
+        transform: scale(2.8);
+        opacity: 0;
+    }
+}
+
+@keyframes goAway10{
+    from{
+        left: 0;
+        top: 0;
+        transform: scale(1);
+        opacity: 1;
+    }
+    to{
+        left: -50vw;
+        top: 50vh;
+        transform: scale(2.8);
+        opacity: 0;
+    }
+}
+
+@keyframes goAway11{
+    from{
+        left: 0;
+        top: 0;
+        transform: scale(1);
+        opacity: 1;
+    }
+    to{
+        left: 50vw;
+        top: 50vh;
+        transform: scale(2.8);
+        opacity: 0;
+    }
+}
+
+@keyframes goAway12{
+    from{
+        left: 0;
+        top: 0;
+        transform: scale(1);
+        opacity: 1;
+    }
+    to{
+        left: 50vw;
+        top: 50vh;
+        transform: scale(2.8);
+        opacity: 0;
+    }
+}
+
+@keyframes goAway13{
+    from{
+        left: 0;
+        top: 0;
+        transform: scale(1);
+        opacity: 1;
+    }
+    to{
+        left: -50vw;
+        top: 50vh;
+        transform: scale(2.8);
+        opacity: 0;
+    }
+}
+
+@keyframes goAway14{
+    from{
+        left: 0;
+        top: 0;
+        transform: scale(1);
+        opacity: 1;
+    }
+    to{
+        left: -50vw;
+        top: 50vh;
+        transform: scale(2.8);
+        opacity: 0;
+    }
+}
+
+@keyframes goAway15{
+    from{
+        left: 0;
+        top: 0;
+        transform: scale(1);
+        opacity: 1;
+    }
+    to{
+        left: 50vw;
+        top: 50vh;
+        transform: scale(2.8);
+        opacity: 0;
+    }
+}
+
+@keyframes goAway16{
+    from{
+        left: 0;
+        top: 0;
+        transform: scale(1);
+        opacity: 1;
+    }
+    to{
+        left: 50vw;
+        top: 50vh;
+        transform: scale(2.8);
+        opacity: 0;
+    }
+}
+
+
+
+.smoke{
+    position: relative;
+    width: 300%;
+    height: 300%;
+}
+
+.smokeTest{
+    width: 100%;
+    height: 100%;
+    /* background-color: dimgray; */
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+#navbarContainer{
+    grid-area: navbarContainer;
+    /* background-color: grey; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3rem;
+    color: white;
+    font-size: 1.3rem;
+    /* background-color: darkred; */
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+a:hover{
+    cursor: pointer;
+}
+
+#contentContainer{
+    grid-area: contentContainer;
+    /* background-color: black; */
+}
+
+#footerContainer{
+    grid-area: footerContainer;
+    /* background-color: black; */
+}
