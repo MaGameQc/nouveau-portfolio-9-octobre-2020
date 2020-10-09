@@ -48,6 +48,21 @@ html{
 
 }
 
+.smoke{
+    position: relative;
+    width: 300%;
+    height: 300%;
+}
+
+.smokeTest{
+    width: 100%;
+    height: 100%;
+    /* background-color: dimgray; */
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .smokeTest:nth-child(1){
     position: relative;
     animation: goAway1 1.2s  linear forwards;
@@ -368,20 +383,7 @@ html{
 
 
 
-.smoke{
-    position: relative;
-    width: 300%;
-    height: 300%;
-}
 
-.smokeTest{
-    width: 100%;
-    height: 100%;
-    /* background-color: dimgray; */
-    display:flex;
-    justify-content: center;
-    align-items: center;
-}
 
 
 
@@ -415,7 +417,38 @@ a:hover{
 
 #contentContainer{
     grid-area: contentContainer;
-    /* background-color: black; */
+    display: grid;
+    grid-template-columns: 0.1fr 0.8fr 0.1fr;
+    grid-template-rows: 0.5fr 0.5fr;
+    grid-template-areas: 
+    "upDownBtn info empty"
+    "upDownBtn info index"
+    ;
+    background-color: black;
+    padding: 3rem;
+
+}
+
+#btnContainer{
+    grid-area: upDownBtn;
+    width:100%;
+    height: 100%;
+    background-color: white;
+}
+
+#informationContainer{
+    grid-area: info;
+    width:100%;
+    height: 100%;
+    background-color: gold;
+}
+
+#indexContainer{
+    grid-area: index;
+    width:100%;
+    height: 100%;
+    background-color: indigo;
+
 }
 
 #footerContainer{
