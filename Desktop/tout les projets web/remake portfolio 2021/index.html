@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tommy Audet</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Palanquin+Dark&display=swap" rel="stylesheet">
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/605bf599b1.js" crossorigin="anonymous"></script>
 </head>
 <body id="main">
 
@@ -88,18 +91,45 @@
 
     <nav id="navbarContainer">
         <p>Tommy Audet</p>
-        <a href="">Voir tout les projets</a>
+        <a id="allProjects" href="">Voir tout les projets</a>
     </nav>
     
     <div id="contentContainer">
         <div id="btnContainer">
-            
+            <i id="up" class="fas fa-angle-up"></i>
+            <i id="down" class="fas fa-angle-down"></i>
         </div>
         <div id="informationContainer">
-
+            <ul id="listOfContent">
+                <li>
+                    <a href="">
+                        <p class="contentDescription">Programmeur Web Front-End</p>
+                        <p class="contentTitle">Tommy Audet</p>
+                    </a>
+                </li>
+            </ul>
         </div>
         <div id="indexContainer">
 
+            <ul id="lineList">
+                <li>
+                    <p class="lineState">1/4</p>
+                    <span class="line"></span>
+                </li>
+                <li>
+                    <p class="lineState">2/4</p>
+                    <span class="line"></span>
+                </li>
+                <li>
+                    <p class="lineState">3/4</p>
+                    <span class="line"></span>
+                </li>
+                <li>
+                    <p class="lineState">4/4</p>
+                    <span class="line"></span>
+                </li>
+            </ul>
+            
         </div>
     </div>
 
@@ -136,6 +166,10 @@ let bg = {
         }
     }
 }
+
+
+
+
 
 bg.addWheelListenner();
 // let hey = 0;

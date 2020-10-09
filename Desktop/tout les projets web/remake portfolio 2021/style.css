@@ -7,6 +7,7 @@
 html{
     font-size: 16px;
     overflow-x: hidden;
+    font-family: 'Palanquin Dark', sans-serif;
 }
 
 
@@ -18,7 +19,6 @@ html{
     "footerContainer"
     ;
     grid-template-rows: 8rem 1fr 8rem;
-    grid-gap: 3px;
     height: 100vh;
     width: 100vw;
 }
@@ -31,7 +31,7 @@ html{
     background-repeat: no-repeat;
     position: absolute;
     z-index: -1;
-    filter: grayscale(100%) brightness(40%);
+    filter: grayscale(100%) brightness(40%) contrast(140%);
 }
 
 #smokeOverlay{
@@ -45,7 +45,6 @@ html{
     grid-template-rows: 25vh 25vh 25vh 25vh;
     justify-content: center;
     grid-gap: 0.3rem;
-
 }
 
 .smoke{
@@ -392,6 +391,7 @@ html{
 
 
 
+/* ***************************************************************************************************** NAVBAR ************************************************************************** */
 
 
 
@@ -407,25 +407,31 @@ html{
     /* background-color: darkred; */
 }
 
-a{
+#allProjects{
     text-decoration: none;
     color: white;
 }
-a:hover{
+#allProjects:hover{
     cursor: pointer;
 }
+
+
+
+
+
+/* ***************************************************************************************************** CONTENT ************************************************************************** */
 
 #contentContainer{
     grid-area: contentContainer;
     display: grid;
-    grid-template-columns: 0.1fr 0.8fr 0.1fr;
+    grid-template-columns: 0fr 0.9fr 0.1fr;
     grid-template-rows: 0.5fr 0.5fr;
     grid-template-areas: 
     "upDownBtn info empty"
     "upDownBtn info index"
     ;
-    background-color: black;
-    padding: 3rem;
+    /* background-color: black; */
+    padding: 4rem;
 
 }
 
@@ -433,23 +439,135 @@ a:hover{
     grid-area: upDownBtn;
     width:100%;
     height: 100%;
-    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    /* background-color: gray; */
+
 }
+
+
+
+#btnContainer i{
+    margin: 0.5rem 0;
+    font-size: 2rem;
+    color: white;
+    padding: 0;
+}
+
+#btnContainer i:hover{
+    color: #0760fe;
+    cursor: pointer;
+}
+
+
 
 #informationContainer{
     grid-area: info;
     width:100%;
     height: 100%;
-    background-color: gold;
+    padding: 4rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+        /* background-color: gold; */
 }
+
+#listOfContent{
+    list-style: none;
+    text-decoration: none;
+}
+
+.contentDescription{
+    font-size: 1.5rem;
+}
+
+.contentTitle{
+    font-size: 4.5rem;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #indexContainer{
     grid-area: index;
     width:100%;
     height: 100%;
-    background-color: indigo;
-
+    /* background-color: indigo; */
+    display: flex;
+    align-items: center;
 }
+
+
+
+#lineList{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* background-color: aqua; */
+}
+
+
+
+ #lineList li{
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    /* background-color: grey; */
+    
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+} 
+
+.line{
+    height: 0.2rem;
+    width: 30%;
+    background-color: white;
+    display: block;
+}
+
+
+
+li:hover .line{
+background-color: #0760fe;
+animation: indexHovered .3s ease-in-out forwards;
+}
+
+.lineState{
+    font-size: 0.8rem;
+    color: #0760fe;
+    margin: 0 0.5rem;
+}
+
+@keyframes indexHovered{
+    from{
+        width: 30%;
+    }
+    to{
+        width: 60%;
+    }
+}
+
+
+
 
 #footerContainer{
     grid-area: footerContainer;
