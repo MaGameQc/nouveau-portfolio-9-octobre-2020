@@ -113,19 +113,19 @@
 
             <ul id="lineList">
                 <li>
-                    <p class="lineState">1/4</p>
+                    <p class="lineState"></p>
                     <span class="line"></span>
                 </li>
                 <li>
-                    <p class="lineState">2/4</p>
+                    <p class="lineState"></p>
                     <span class="line"></span>
                 </li>
                 <li>
-                    <p class="lineState">3/4</p>
+                    <p class="lineState"></p>
                     <span class="line"></span>
                 </li>
                 <li>
-                    <p class="lineState">4/4</p>
+                    <p class="lineState"></p>
                     <span class="line"></span>
                 </li>
             </ul>
@@ -167,8 +167,31 @@ let bg = {
     }
 }
 
+let navIndex = {
+    list : document.querySelectorAll("#lineList li"),
+    
+    addListenners : function(){
+        const self = navIndex;
+        this.list.forEach(function(element, index){
+            index++
+            element.addEventListener("mouseenter",function(){
+                let state = element.firstElementChild;
+                state.innerHTML = index + "/" + self.list.length;
+            });
+            element.addEventListener("mouseleave",function(){
+                let state = element.firstElementChild;
+                state.innerHTML = "";
+            });
+        });
+    },
 
+    show : function(){
+        console.log(this.list);
+    },
+};
 
+navIndex.addListenners();
+navIndex.show();
 
 
 bg.addWheelListenner();
