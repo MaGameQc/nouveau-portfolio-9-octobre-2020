@@ -146,37 +146,58 @@ let bg = {
     smokeOverlayImg : document.querySelectorAll(".smokeTest"),
     ImgNames : ["background1.jpg", "background2.jpg", "background3.jpg", "background4.jpg"],
     Indx : 0,
+    navList : document.querySelectorAll("#lineList li"),
+    navSpanLines : document.querySelectorAll("#lineList li span"),
 
     addWheelListenner : addWheelListenner = () =>{
-        document.onwheel = () =>{
-            bg.Indx ++
-            console.log(bg.Indx);
-            bg.smokeOverlayImg.forEach(function(element){
-                element.classList.remove("smokeTest");
-                setTimeout(function(){
-                    element.classList.add("smokeTest");
-                    }, 1);
-            });
-
-            if(bg.Indx > bg.ImgNames.length -1){
-                bg.Indx = 0;
+        document.onwheel = (e) =>{
+            let isScrollingDown = false;
+            if(e.deltaY > 0){
+                isScrollingDown = true;
+                bg.deselectLastElement();
+                bg.Indx ++
+                // console.log(bg.Indx);
+                bg.smokeOverlayImg.forEach(function(element){
+                    element.classList.remove("smokeTest");
+                    setTimeout(function(){
+                            element.classList.add("smokeTest");
+                        }, 1);
+                });
+                if(bg.Indx > bg.ImgNames.length -1){
+                    bg.Indx = 0;
+                }
+                bg.selectThisElement();
+            } else{
+                isScrollingDown = false;
+                bg.deselectLastElement();
+                bg.Indx --
+                // console.log(bg.Indx);
+                bg.smokeOverlayImg.forEach(function(element){
+                    element.classList.remove("smokeTest");
+                    setTimeout(function(){
+                            element.classList.add("smokeTest");
+                        }, 1);
+                });
+                if(bg.Indx < 0){
+                    bg.Indx = bg.ImgNames.length -1;
+                }
+                bg.selectThisElement();
             }
+            
+
+
             bg.Url.backgroundImage = "url('image/background/" + bg.ImgNames[bg.Indx] + "')";
 
         }
-    }
-}
+    },
 
-let navIndex = {
-    list : document.querySelectorAll("#lineList li"),
-    
-    addListenners : function(){
-        const self = navIndex;
-        this.list.forEach(function(element, index){
+    addNavIndexListenners : function(){
+        const self = bg;
+        this.navList.forEach(function(element, index){
             index++
             element.addEventListener("mouseenter",function(){
                 let state = element.firstElementChild;
-                state.innerHTML = index + "/" + self.list.length;
+                state.innerHTML = index + "/" + self.navList.length;
             });
             element.addEventListener("mouseleave",function(){
                 let state = element.firstElementChild;
@@ -185,22 +206,28 @@ let navIndex = {
         });
     },
 
-    show : function(){
-        console.log(this.list);
+    deselectLastElement : function(){
+        let element = this.navSpanLines[this.Indx]; 
+        element.classList.remove("hoveredLine");
+    },
+
+    selectThisElement : function(plusOrMinus){        
+        let element = this.navSpanLines[this.Indx]; 
+        element.classList.add("hoveredLine");
+
+        console.log(element);
     },
 };
 
-navIndex.addListenners();
-navIndex.show();
 
 
-bg.addWheelListenner();
-// let hey = 0;
-//         document.onwheel = function(){
-//             hey++
-//             console.log(hey);
-//             };
-    </script>
+
+
+    bg.addWheelListenner();
+    bg.addNavIndexListenners();
+
+
+</script>
 
 
     <script src="script.js"></script>

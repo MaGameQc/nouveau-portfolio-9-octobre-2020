@@ -457,7 +457,7 @@ html{
 }
 
 #btnContainer i:hover{
-    color: #0760fe;
+    color: #8bfa0b;
     cursor: pointer;
 }
 
@@ -547,14 +547,19 @@ a{
 
 
 
-li:hover .line{
-background-color: #0760fe;
+/* li:hover .line{
+background-color: #8bfa0b;
 animation: indexHovered .3s ease-in-out forwards;
+} */
+
+.hoveredLine{
+    background-color: #8bfa0b !important;
+    animation: indexHovered .3s ease-in-out forwards;
 }
 
 .lineState{
     font-size: 0.8rem;
-    color: #0760fe;
+    color: #8bfa0b;
     margin: 0 0.5rem;
 }
 
