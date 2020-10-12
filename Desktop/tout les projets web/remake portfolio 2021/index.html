@@ -146,47 +146,37 @@ let bg = {
     smokeOverlayImg : document.querySelectorAll(".smokeTest"),
     ImgNames : ["background1.jpg", "background2.jpg", "background3.jpg", "background4.jpg"],
     indx : 0,
+    savedIndex : 0,
     navList : document.querySelectorAll("#lineList li"),
     navSpanLines : document.querySelectorAll("#lineList li span"),
+    navLineState : document.querySelectorAll(".lineState"),
 
     addWheelListenner : function(){
         document.onwheel = (e) =>{
-            let isScrollingDown = false;
+            let isScrollingDown;
             if(e.deltaY > 0){
                 isScrollingDown = true;
-                bg.deselectLastElement();
-                bg.indx ++
-                // console.log(bg.indx);
-                bg.smokeOverlayImg.forEach(function(element){
-                    element.classList.remove("smokeTest");
-                    setTimeout(function(){
-                            element.classList.add("smokeTest");
-                        }, 1);
-                });
-                if(bg.indx > bg.ImgNames.length -1){
-                    bg.indx = 0;
+                this.deselectLastElement();
+                this.indx ++
+                this.showSmoke();
+                if(this.indx > this.ImgNames.length -1){
+                    this.indx = 0;
                 }
-                bg.selectThisElement();
+                this.selectThisElement();
             } else{
                 isScrollingDown = false;
-                bg.deselectLastElement();
-                bg.indx --
-                // console.log(bg.indx);
-                bg.smokeOverlayImg.forEach(function(element){
-                    element.classList.remove("smokeTest");
-                    setTimeout(function(){
-                            element.classList.add("smokeTest");
-                        }, 1);
-                });
-                if(bg.indx < 0){
-                    bg.indx = bg.ImgNames.length -1;
+                this.deselectLastElement();
+                this.indx --
+                this.showSmoke();
+                if(this.indx < 0){
+                    this.indx = this.ImgNames.length -1;
                 }
-                bg.selectThisElement();
+                this.selectThisElement();
             }
             
 
 
-            bg.Url.backgroundImage = "url('image/background/" + bg.ImgNames[bg.indx] + "')";
+            this.Url.backgroundImage = "url('image/background/" + this.ImgNames[this.indx] + "')";
 
         }
     },
@@ -194,24 +184,36 @@ let bg = {
     addNavIndexListenners : function(){
         const self = bg;
         this.navList.forEach(function(element, index){
-            index++
             element.addEventListener("mouseenter",function(){
-                let state = element.firstElementChild;
-                state.innerHTML = index + "/" + self.navList.length;
+                self.deselectLastElement();
+                self.indx = index;
+                self.selectThisElement();
             });
+            
             element.addEventListener("mouseleave",function(){
-                let state = element.firstElementChild;
-                state.innerHTML = "";
+                self.deselectLastElement();
+                self.indx = self.savedIndex;
+                console.log(self.indx + " indx");
+                self.selectThisElement();
+            });
+
+            element.addEventListener("click", function(){
+                self.savedIndex = index;
+                bg.Url.backgroundImage = "url('image/background/" + bg.ImgNames[bg.indx] + "')";
+                bg.showSmoke();
             });
         });
     },
 
-    deselectLastElement : function(){
-        let element = this.navSpanLines[this.indx]; 
-        element.classList.remove("hoveredLine");
-
-        let state = this.navList[this.indx].firstElementChild;
-        state.innerHTML = "";
+    showSmoke : function(){
+        let element = this.smokeOverlayImg;
+        let parent = element[0].parentElement;
+        parent.innerHTML = "";
+        element.forEach(function(element){
+            parent.appendChild(element);
+        });
+        // important, had no choice to get rid of all elements in parent clone them et re append them becaus otherwise, i've seen that there is an problem with css animation
+        //when you try to remove a class and re apply it to an element to re animate this element, its not stable. 
     },
 
     selectThisElement : function(plusOrMinus){        
@@ -221,6 +223,16 @@ let bg = {
         let state = this.navList[this.indx].firstElementChild;
         state.innerHTML = (this.indx + 1) + "/" + this.navList.length;
     },
+
+    deselectLastElement : function(hoverIndex){
+        let element = this.navSpanLines[this.indx]; 
+        element.classList.remove("hoveredLine");
+
+        let state = this.navList[this.indx].firstElementChild;
+        state.innerHTML = "";
+    },
+
+
 };
 
 
