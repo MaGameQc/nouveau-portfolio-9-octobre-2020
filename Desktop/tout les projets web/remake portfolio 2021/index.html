@@ -145,48 +145,48 @@ let bg = {
     smokeOverlay : document.querySelector("#smokeOverlay"),
     smokeOverlayImg : document.querySelectorAll(".smokeTest"),
     ImgNames : ["background1.jpg", "background2.jpg", "background3.jpg", "background4.jpg"],
-    Indx : 0,
+    indx : 0,
     navList : document.querySelectorAll("#lineList li"),
     navSpanLines : document.querySelectorAll("#lineList li span"),
 
-    addWheelListenner : addWheelListenner = () =>{
+    addWheelListenner : function(){
         document.onwheel = (e) =>{
             let isScrollingDown = false;
             if(e.deltaY > 0){
                 isScrollingDown = true;
                 bg.deselectLastElement();
-                bg.Indx ++
-                // console.log(bg.Indx);
+                bg.indx ++
+                // console.log(bg.indx);
                 bg.smokeOverlayImg.forEach(function(element){
                     element.classList.remove("smokeTest");
                     setTimeout(function(){
                             element.classList.add("smokeTest");
                         }, 1);
                 });
-                if(bg.Indx > bg.ImgNames.length -1){
-                    bg.Indx = 0;
+                if(bg.indx > bg.ImgNames.length -1){
+                    bg.indx = 0;
                 }
                 bg.selectThisElement();
             } else{
                 isScrollingDown = false;
                 bg.deselectLastElement();
-                bg.Indx --
-                // console.log(bg.Indx);
+                bg.indx --
+                // console.log(bg.indx);
                 bg.smokeOverlayImg.forEach(function(element){
                     element.classList.remove("smokeTest");
                     setTimeout(function(){
                             element.classList.add("smokeTest");
                         }, 1);
                 });
-                if(bg.Indx < 0){
-                    bg.Indx = bg.ImgNames.length -1;
+                if(bg.indx < 0){
+                    bg.indx = bg.ImgNames.length -1;
                 }
                 bg.selectThisElement();
             }
             
 
 
-            bg.Url.backgroundImage = "url('image/background/" + bg.ImgNames[bg.Indx] + "')";
+            bg.Url.backgroundImage = "url('image/background/" + bg.ImgNames[bg.indx] + "')";
 
         }
     },
@@ -207,22 +207,26 @@ let bg = {
     },
 
     deselectLastElement : function(){
-        let element = this.navSpanLines[this.Indx]; 
+        let element = this.navSpanLines[this.indx]; 
         element.classList.remove("hoveredLine");
+
+        let state = this.navList[this.indx].firstElementChild;
+        state.innerHTML = "";
     },
 
     selectThisElement : function(plusOrMinus){        
-        let element = this.navSpanLines[this.Indx]; 
+        let element = this.navSpanLines[this.indx]; 
         element.classList.add("hoveredLine");
 
-        console.log(element);
+        let state = this.navList[this.indx].firstElementChild;
+        state.innerHTML = (this.indx + 1) + "/" + this.navList.length;
     },
 };
 
 
 
 
-
+    bg.selectThisElement();
     bg.addWheelListenner();
     bg.addNavIndexListenners();
 
