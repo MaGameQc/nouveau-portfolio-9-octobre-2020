@@ -6,7 +6,7 @@
 
 html{
     font-size: 16px;
-    overflow-x: hidden;
+    overflow: hidden;
     font-family: 'Palanquin Dark', sans-serif;
 }
 
@@ -34,28 +34,28 @@ html{
     background-repeat: no-repeat;
     position: absolute;
     z-index: -1;
-    filter: grayscale(100%) brightness(20%) contrast(110%);
+    filter: grayscale(100%) brightness(30%) contrast(110%);
 }
 
-/* #colorBackgroundOverlay{
+#colorBackgroundOverlay{
     width: 100vw;
     height: 100vh;
-    background-color: rgba(70, 131, 0, 0.05);
+    background-color: rgba(7, 96, 254, 0.02);
     position: absolute;
     z-index: -1;
-} */
+}
 
 #smokeOverlay{
     overflow: hidden;
-    height: 100%;
-    width: 100%;
+    height: 100vh;
+    width: 100vw;
     position: absolute;
     z-index: -1;
     display: grid;
     grid-template-columns: 25vw 25vw 25vw 25vw;
     grid-template-rows: 25vh 25vh 25vh 25vh;
     justify-content: center;
-    grid-gap: 0.3rem;
+    /* grid-gap: 0.3rem; */
 }
 
 .smoke{
@@ -504,240 +504,176 @@ animation: indexHovered .3s ease-in-out forwards;
 
 @keyframes goAway1{
     from{
-        left: 0;
-        top: 0;
         transform: scale(1);
         opacity: 1;
     }
     to{
-        left: -50vw;
-        top: -50vh;
-        transform: scale(2.8);
+        transform: scale(2.8) translateX(-50vw) translateY(-50vh);
         opacity: 0;
     }
 }
 
 @keyframes goAway2{
     from{
-        left: 0;
-        top: 0;
         transform: scale(1);
         opacity: 1;
     }
     to{
-        left: -50vw;
-        top: -50vh;
-        transform: scale(2.8);
+    transform: scale(2.8) translateX(-50vw) translateY(-50vh);
         opacity: 0;
     }
 }
 
 @keyframes goAway3{
     from{
-        left: 0;
-        top: 0;
         transform: scale(1);
         opacity: 1;
     }
     to{
-        left: 50vw;
-        top: -50vh;
-        transform: scale(2.8);
+        transform: scale(2.8) translateX(50vw) translateY(-50vh);
         opacity: 0;
     }
 }
 
 @keyframes goAway4{
     from{
-        left: 0;
-        top: 0;
         transform: scale(1);
         opacity: 1;
     }
     to{
-        left: 50vw;
-        top: -50vh;
-        transform: scale(2.8);
+        transform: scale(2.8) translateX(50vw) translateY(-50vh);
         opacity: 0;
     }
 }
 
 @keyframes goAway5{
     from{
-        left: 0;
-        top: 0;
         transform: scale(1);
         opacity: 1;
     }
     to{
-        left: -50vw;
-        top: -50vh;
-        transform: scale(2.8);
+        transform: scale(2.8) translateX(-50vw) translateY(-50vh);
         opacity: 0;
     }
 }
 
 @keyframes goAway6{
     from{
-        left: 0;
-        top: 0;
         transform: scale(1);
         opacity: 1;
     }
     to{
-        left: -50vw;
-        top: -50vh;
-        transform: scale(2.8);
+        transform: scale(2.8) translateX(-50vw) translateY(-50vh);
         opacity: 0;
     }
 }
 
 @keyframes goAway7{
     from{
-        left: 0;
-        top: 0;
         transform: scale(1);
         opacity: 1;
     }
     to{
-        left: 50vw;
-        top: -50vh;
-        transform: scale(2.8);
+        transform: scale(2.8) translateX(50vw) translateY(-50vh);
         opacity: 0;
     }
 }
 
 @keyframes goAway8{
     from{
-        left: 0;
-        top: 0;
         transform: scale(1);
         opacity: 1;
     }
     to{
-        left: 50vw;
-        top: -50vh;
-        transform: scale(2.8);
+        transform: scale(2.8) translateX(50vw) translateY(-50vh);
         opacity: 0;
     }
 }
 
 @keyframes goAway9{
     from{
-        left: 0;
-        top: 0;
         transform: scale(1);
         opacity: 1;
     }
     to{
-        left: -50vw;
-        top: 50vh;
-        transform: scale(2.8);
+        transform: scale(2.8) translateX(-50vw) translateY(50vh);
         opacity: 0;
     }
 }
 
 @keyframes goAway10{
     from{
-        left: 0;
-        top: 0;
         transform: scale(1);
         opacity: 1;
     }
     to{
-        left: -50vw;
-        top: 50vh;
-        transform: scale(2.8);
+        transform: scale(2.8) translateX(-50vw) translateY(50vh);
         opacity: 0;
     }
 }
 
 @keyframes goAway11{
     from{
-        left: 0;
-        top: 0;
         transform: scale(1);
         opacity: 1;
     }
     to{
-        left: 50vw;
-        top: 50vh;
-        transform: scale(2.8);
+        transform: scale(2.8) translateX(50vw) translateY(50vh);
         opacity: 0;
     }
 }
 
 @keyframes goAway12{
     from{
-        left: 0;
-        top: 0;
         transform: scale(1);
         opacity: 1;
     }
     to{
-        left: 50vw;
-        top: 50vh;
-        transform: scale(2.8);
+        transform: scale(2.8) translateX(50vw) translateY(50vh);
         opacity: 0;
     }
 }
 
 @keyframes goAway13{
     from{
-        left: 0;
-        top: 0;
         transform: scale(1);
         opacity: 1;
     }
     to{
-        left: -50vw;
-        top: 50vh;
-        transform: scale(2.8);
+        transform: scale(2.8) translateX(-50vw) translateY(50vh);
         opacity: 0;
     }
 }
 
 @keyframes goAway14{
     from{
-        left: 0;
-        top: 0;
         transform: scale(1);
         opacity: 1;
     }
     to{
-        left: -50vw;
-        top: 50vh;
-        transform: scale(2.8);
+        transform: scale(2.8) translateX(-50vw) translateY(50vh);
         opacity: 0;
     }
 }
 
 @keyframes goAway15{
     from{
-        left: 0;
-        top: 0;
         transform: scale(1);
         opacity: 1;
     }
     to{
-        left: 50vw;
-        top: 50vh;
-        transform: scale(2.8);
+        transform: scale(2.8) translateX(50vw) translateY(50vh);
         opacity: 0;
     }
 }
 
 @keyframes goAway16{
     from{
-        left: 0;
-        top: 0;
         transform: scale(1);
         opacity: 1;
     }
     to{
-        left: 50vw;
-        top: 50vh;
-        transform: scale(2.8);
+        transform: scale(2.8) translateX(50vw) translateY(50vh);
         opacity: 0;
     }
 }
