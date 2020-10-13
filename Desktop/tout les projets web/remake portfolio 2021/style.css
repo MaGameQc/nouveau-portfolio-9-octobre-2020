@@ -27,12 +27,21 @@ html{
     height: 100vh;
     width: 100vw;
     background-image: url("image/background/background1.jpg");
-    background-size: 100% 100%;
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
     position: absolute;
     z-index: -1;
     filter: grayscale(100%) brightness(40%) contrast(140%);
 }
+
+/* #colorBackgroundOverlay{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(70, 131, 0, 0.05);
+    position: absolute;
+    z-index: -1;
+} */
 
 #smokeOverlay{
     overflow: hidden;
@@ -61,6 +70,304 @@ html{
     justify-content: center;
     align-items: center;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ***************************************************************************************************** NAVBAR ************************************************************************** */
+
+
+
+#navbarContainer{
+    grid-area: navbarContainer;
+    /* background-color: grey; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3rem;
+    color: white;
+    font-size: 1.3rem;
+    /* background-color: darkred; */
+}
+
+#allProjects{
+    text-decoration: none;
+    color: white;
+}
+#allProjects:hover{
+    cursor: pointer;
+}
+
+
+
+
+
+/* ***************************************************************************************************** CONTENT ************************************************************************** */
+
+#contentContainer{
+    grid-area: contentContainer;
+    display: grid;
+    grid-template-columns: 0fr 0.9fr auto;
+    grid-template-rows: 0.5fr 0.5fr;
+    grid-template-areas: 
+    "upDownBtn info empty"
+    "upDownBtn info index"
+    ;
+    /* background-color: grey; */
+    padding: 4rem;
+
+}
+
+
+
+
+
+
+
+
+#btnContainer{
+    grid-area: upDownBtn;
+    width:100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    background-color: blue;
+
+}
+
+
+
+#btnContainer i{
+    margin: 0.5rem 0;
+    font-size: 2rem;
+    color: white;
+    padding: 0;
+}
+
+#btnContainer i:hover{
+    color: #8bfa0b;
+    cursor: pointer;
+}
+
+
+
+#informationContainer{
+    grid-area: info;
+    width:100%;
+    height: 100%;
+    padding: 4rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+        /* background-color: gold; */
+}
+
+#listOfContent{
+    list-style: none;
+    text-decoration: none;
+}
+
+.contentDescription{
+    font-size: 1.5rem;
+}
+
+.contentTitle{
+    font-size: 4.5rem;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#indexContainer{
+    grid-area: index;
+    width:15rem;
+    height: 100%;
+    /* background-color: indigo; */
+    display: flex;
+    align-items: center;
+}
+
+
+
+#lineList{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    /* background-color: aqua; */
+}
+
+
+
+ #lineList li{
+    cursor: pointer;
+    width: 100%;
+    height: 1rem;
+    /* background-color: grey; */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+} 
+
+.line{
+    height: 0.2rem;
+    width: 30%;
+    background-color: white;
+    display: block;
+}
+
+
+
+/* li:hover .line{
+background-color: #8bfa0b;
+animation: indexHovered .3s ease-in-out forwards;
+} */
+
+.hoveredLine{
+    background-color: #8bfa0b !important;
+    animation: indexHovered .3s ease-in-out forwards;
+}
+
+.lineState{
+    font-size: 0.8rem;
+    color: #8bfa0b;
+    margin: 0 0.5rem;
+}
+
+@keyframes indexHovered{
+    from{
+        width: 30%;
+    }
+    to{
+        width: 40%;
+    }
+}
+
+
+
+
+#footerContainer{
+    grid-area: footerContainer;
+    /* background-color: black; */
+}
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 768px) {
+    html{
+        font-size: 8px;
+    }
+
+    #contentContainer{
+        grid-area: contentContainer;
+        display: grid;
+        grid-template-columns: 1fr 0.1fr;
+        grid-template-rows: 0.5fr 0.5fr 0.5fr;
+        grid-template-areas: 
+        " info info"
+        " info info"
+        " index index"
+        ;
+        /* background-color: black; */
+        padding: 4rem;
+    }
+
+    #informationContainer{
+        padding: 0;
+        align-items: flex-start;
+    }
+
+    #btnContainer{
+        display: none;
+    }
+
+    #indexContainer{
+    grid-area: index;
+    width : 100%;
+    height: 100%;
+    /* background-color: indigo; */
+    justify-content: flex-end;
+
+    
+}
+
+#lineList{
+    width: 15rem;
+    height: 100%;
+    justify-content: flex-end;
+    align-items: flex-end;
+    /* background-color: aqua; */
+}
+
+#lineList li{
+    height: 1.2rem;
+    /* background-color: grey; */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+} 
+
+.line{
+    height: 0.4rem;
+    width: 30%;
+    background-color: white;
+    display: block;
+}
+
+.lineState{
+    font-size: 1.2rem;
+    color: #8bfa0b;
+    margin: 0 0.5rem;
+}
+
+}
+/**/
+
+
+
+
+
+
+
+
+
+
+
 
 .smokeTest:nth-child(1){
     position: relative;
@@ -381,201 +688,10 @@ html{
 }
 
 
-
-
-
-
-
-
-
-
-
-
-/* ***************************************************************************************************** NAVBAR ************************************************************************** */
-
-
-
-#navbarContainer{
-    grid-area: navbarContainer;
-    /* background-color: grey; */
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 3rem;
-    color: white;
-    font-size: 1.3rem;
-    /* background-color: darkred; */
+.color{
+    background-color: burlywood !important;
 }
 
-#allProjects{
-    text-decoration: none;
-    color: white;
-}
-#allProjects:hover{
-    cursor: pointer;
-}
-
-
-
-
-
-/* ***************************************************************************************************** CONTENT ************************************************************************** */
-
-#contentContainer{
-    grid-area: contentContainer;
-    display: grid;
-    grid-template-columns: 0fr 0.9fr 0.1fr;
-    grid-template-rows: 0.5fr 0.5fr;
-    grid-template-areas: 
-    "upDownBtn info empty"
-    "upDownBtn info index"
-    ;
-    /* background-color: black; */
-    padding: 4rem;
-
-}
-
-#btnContainer{
-    grid-area: upDownBtn;
-    width:100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    /* background-color: gray; */
-
-}
-
-
-
-#btnContainer i{
-    margin: 0.5rem 0;
-    font-size: 2rem;
-    color: white;
-    padding: 0;
-}
-
-#btnContainer i:hover{
-    color: #8bfa0b;
-    cursor: pointer;
-}
-
-
-
-#informationContainer{
-    grid-area: info;
-    width:100%;
-    height: 100%;
-    padding: 4rem;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-        /* background-color: gold; */
-}
-
-#listOfContent{
-    list-style: none;
-    text-decoration: none;
-}
-
-.contentDescription{
-    font-size: 1.5rem;
-}
-
-.contentTitle{
-    font-size: 4.5rem;
-}
-
-a{
-    text-decoration: none;
-    color: white;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#indexContainer{
-    grid-area: index;
-    width:100%;
-    height: 100%;
-    /* background-color: indigo; */
-    display: flex;
-    align-items: center;
-}
-
-
-
-#lineList{
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-    /* background-color: aqua; */
-}
-
-
-
- #lineList li{
-    cursor: pointer;
-    width: 100%;
-    height: 1rem;
-    /* background-color: grey; */
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-} 
-
-.line{
-    height: 0.2rem;
-    width: 30%;
-    background-color: white;
-    display: block;
-}
-
-
-
-/* li:hover .line{
-background-color: #8bfa0b;
-animation: indexHovered .3s ease-in-out forwards;
-} */
-
-.hoveredLine{
-    background-color: #8bfa0b !important;
-    animation: indexHovered .3s ease-in-out forwards;
-}
-
-.lineState{
-    font-size: 0.8rem;
-    color: #8bfa0b;
-    margin: 0 0.5rem;
-}
-
-@keyframes indexHovered{
-    from{
-        width: 30%;
-    }
-    to{
-        width: 40%;
-    }
-}
-
-
-
-
-#footerContainer{
-    grid-area: footerContainer;
-    /* background-color: black; */
+.color2{
+    background-color: darkcyan !important;
 }
