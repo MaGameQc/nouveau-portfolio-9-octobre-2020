@@ -150,6 +150,8 @@ let bg = {
     navList : document.querySelectorAll("#lineList li"),
     navSpanLines : document.querySelectorAll("#lineList li span"),
     navLineState : document.querySelectorAll(".lineState"),
+    arrowUp : document.querySelector("#up"),
+    arrowDown : document.querySelector("#down"),
 
     addWheelListenner : function(){
         document.onwheel = (e) =>{
@@ -158,27 +160,63 @@ let bg = {
                 isScrollingDown = true;
                 this.deselectLastElement();
                 this.indx ++
+                this.savedIndex = this.indx;
                 this.showSmoke();
                 if(this.indx > this.ImgNames.length -1){
                     this.indx = 0;
+                    this.savedIndex = this.indx;
                 }
                 this.selectThisElement();
             } else{
                 isScrollingDown = false;
                 this.deselectLastElement();
                 this.indx --
+                this.savedIndex = this.indx;
                 this.showSmoke();
                 if(this.indx < 0){
                     this.indx = this.ImgNames.length -1;
+                    this.savedIndex = this.indx;
                 }
                 this.selectThisElement();
             }
             
 
 
-            this.Url.backgroundImage = "url('image/background/" + this.ImgNames[this.indx] + "')";
+            this.changeBgImage();
 
         }
+    },
+
+    addArrowListenners : function(){
+        let self = bg;
+        self.arrowUp.addEventListener("click", function(){
+            self.deselectLastElement();
+            self.indx --
+            self.savedIndex = this.indx;
+            self.showSmoke();
+                if(self.indx < 0){
+                    self.indx = self.ImgNames.length -1;
+                    self.savedIndex = self.indx;
+                }
+                self.selectThisElement();
+        });
+
+        self.arrowDown.addEventListener("click", function(){
+            self.deselectLastElement();
+            self.indx ++
+            self.savedIndex = self.indx;
+            self.showSmoke();
+                if(self.indx > self.ImgNames.length -1){
+                    console.log("hey");
+                    self.indx = 0;
+                    self.savedIndex = self.indx;
+                }
+                self.selectThisElement();
+        });
+    },
+
+    changeBgImage : function(){
+        this.Url.backgroundImage = "url('image/background/" + this.ImgNames[this.indx] + "')";
     },
 
     addNavIndexListenners : function(){
@@ -198,8 +236,9 @@ let bg = {
             });
 
             element.addEventListener("click", function(){
+
                 self.savedIndex = index;
-                bg.Url.backgroundImage = "url('image/background/" + bg.ImgNames[bg.indx] + "')";
+                self.changeBgImage();
                 bg.showSmoke();
             });
         });
@@ -216,7 +255,7 @@ let bg = {
         //when you try to remove a class and re apply it to an element to re animate this element, its not stable. 
     },
 
-    selectThisElement : function(plusOrMinus){        
+    selectThisElement : function(){        
         let element = this.navSpanLines[this.indx]; 
         element.classList.add("hoveredLine");
 
@@ -241,6 +280,7 @@ let bg = {
     bg.selectThisElement();
     bg.addWheelListenner();
     bg.addNavIndexListenners();
+    bg.addArrowListenners();
 
 
 </script>
