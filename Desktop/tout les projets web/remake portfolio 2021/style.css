@@ -144,7 +144,7 @@ html{
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    background-color: blue;
+    /* background-color: blue; */
 
 }
 
@@ -331,6 +331,19 @@ animation: indexHovered .3s ease-in-out forwards;
         font-size: 8px;
     }
 
+    #main{
+        display: grid;
+        grid-template-areas:
+        "navbarContainer"
+        "contentContainer"
+        ;
+        grid-template-rows: 8rem 1fr;
+        height: 100vh;
+        width: 100vw;
+        max-height: 100vh;
+        max-width: 100vw;
+    }
+
     #contentContainer{
         grid-area: contentContainer;
         display: grid;
@@ -391,6 +404,10 @@ animation: indexHovered .3s ease-in-out forwards;
     font-size: 1.2rem;
     color: #0760fe;
     margin: 0 0.5rem;
+}
+
+#footerContainer{
+    display: none;
 }
 
 }
