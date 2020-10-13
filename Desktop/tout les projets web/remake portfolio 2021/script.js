@@ -1,7 +1,7 @@
 
 let bg = {
     indx : 0,
-    savedIndex : 0,
+    savedNavIndex : 0,
     isIncrementing : false,
     Container : document.getElementById("background"), 
     Url : document.getElementById("background").style,
@@ -14,6 +14,7 @@ let bg = {
     arrowUp : document.querySelector("#up"),
     arrowDown : document.querySelector("#down"),
     touchStartClientY : "",
+    contentList : document.querySelectorAll("#listOfContent li"),
 
     initialiseListenners : function(){
         this.addWheelListenner();
@@ -38,12 +39,10 @@ let bg = {
         document.getElementById("contentContainer").addEventListener("touchstart", function(ev){
             let y = ev.touches[0].clientY;
             bg.touchStartClientY = y;
-            console.log("touchStarted " + bg.touchStartClientY);
         });
 
         document.getElementById("contentContainer").addEventListener("touchmove", function(ev){
             let yMoove = ev.changedTouches[0].clientY;
-            console.log(yMoove);
             if(yMoove - bg.touchStartClientY > 150){
                     bg.swipeDown();
                     bg.touchStartClientY = yMoove;
@@ -83,7 +82,7 @@ let bg = {
             
             element.addEventListener("mouseleave",function(){
                 self.deselectLastSelectedIndexBar();
-                self.indx = self.savedIndex;
+                self.indx = self.savedNavIndex;
                 self.selectThisIndexBar();
             });
 
@@ -91,6 +90,7 @@ let bg = {
                 self.saveIndex();
                 self.changeBgImage();
                 self.showSmoke();
+                self.changeContentDescription();
             });
         });
     },
@@ -133,7 +133,16 @@ let bg = {
     },
 
     saveIndex : function(){
-        this.savedIndex = this.indx;
+        this.savedNavIndex = this.indx;
+    },
+
+    changeContentDescription : function(){  
+            this.contentList.forEach(function(element){
+                console.log(element);
+                element.className = "";
+                element.classList.add("hiddenInfo")
+            });
+            this.contentList[this.indx].classList.add("showInfo");
     },
 
     changeBgImage : function(isIncrementing){
@@ -144,7 +153,10 @@ let bg = {
             this.showSmoke();
                 if(this.indx > this.ImgNames.length -1){
                     this.indx = 0;
+                    this.changeContentDescription();
                     this.saveIndex();
+                }else{
+                    this.changeContentDescription();
                 }
                 this.selectThisIndexBar();
         }
@@ -154,12 +166,15 @@ let bg = {
             this.saveIndex();
             this.showSmoke();
                 if(this.indx < 0){
-                    this.indx = this.ImgNames.length -1;
                     this.saveIndex();
+                    this.indx = this.ImgNames.length -1;
+                    this.changeContentDescription();
+                }else{
+                    this.changeContentDescription();
                 }
                 this.selectThisIndexBar();
         }
-
+        
         this.Url.backgroundImage = "url('image/background/" + this.ImgNames[this.indx] + "')";
     },
 

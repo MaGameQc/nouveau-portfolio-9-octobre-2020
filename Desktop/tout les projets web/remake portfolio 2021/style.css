@@ -21,6 +21,8 @@ html{
     grid-template-rows: 8rem 1fr 8rem;
     height: 100vh;
     width: 100vw;
+    max-height: 100vh;
+    max-width: 100vw;
 }
 
 #background{
@@ -32,7 +34,7 @@ html{
     background-repeat: no-repeat;
     position: absolute;
     z-index: -1;
-    filter: grayscale(100%) brightness(40%) contrast(140%);
+    filter: grayscale(100%) brightness(20%) contrast(110%);
 }
 
 /* #colorBackgroundOverlay{
@@ -95,7 +97,7 @@ html{
     justify-content: space-between;
     padding: 3rem;
     color: white;
-    font-size: 1.3rem;
+    font-size: 2rem;
     /* background-color: darkred; */
 }
 
@@ -156,7 +158,7 @@ html{
 }
 
 #btnContainer i:hover{
-    color: #8bfa0b;
+    color: #0760fe;
     cursor: pointer;
 }
 
@@ -171,6 +173,20 @@ html{
     justify-content: flex-start;
     align-items: center;
         /* background-color: gold; */
+}
+
+.hiddenInfo{
+    display: none;
+}
+
+.showInfo{
+    display: block;
+    animation: showInfo 1s ease-out forwards;
+}
+
+@keyframes showInfo{
+    from{opacity: 0; transform: translateX(-20%);}
+    to{opacity: 1; transform: translateX(0);}
 }
 
 #listOfContent{
@@ -247,18 +263,18 @@ a{
 
 
 /* li:hover .line{
-background-color: #8bfa0b;
+background-color: #0760fe;
 animation: indexHovered .3s ease-in-out forwards;
 } */
 
 .hoveredLine{
-    background-color: #8bfa0b !important;
+    background-color: #0760fe !important;
     animation: indexHovered .3s ease-in-out forwards;
 }
 
 .lineState{
     font-size: 0.8rem;
-    color: #8bfa0b;
+    color: #0760fe;
     margin: 0 0.5rem;
 }
 
@@ -274,14 +290,36 @@ animation: indexHovered .3s ease-in-out forwards;
 
 
 
+/* ***************************************************************************************************** FOOTER ************************************************************************** */
+
+
 #footerContainer{
     grid-area: footerContainer;
     /* background-color: black; */
+        /* background-color: grey; */
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 3rem;
+        color: white;
+        font-size: 2rem;
+        /* background-color: darkred; */
+}
+
+#footerContainer i{
+    margin : 0 1.5rem;
+}
+
+#footerContainer i:hover{
+    cursor: pointer;
+    color: #0760fe;
 }
 
 
 
 
+
+/* ***************************************************************************************************** MOBILE ************************************************************************** */
 
 
 
@@ -351,7 +389,7 @@ animation: indexHovered .3s ease-in-out forwards;
 
 .lineState{
     font-size: 1.2rem;
-    color: #8bfa0b;
+    color: #0760fe;
     margin: 0 0.5rem;
 }
 
