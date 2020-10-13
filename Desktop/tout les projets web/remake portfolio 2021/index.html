@@ -140,18 +140,24 @@
     <script>
 
 let bg = {
+    indx : 0,
+    savedIndex : 0,
     Container : document.getElementById("background"), 
     Url : document.getElementById("background").style,
     smokeOverlay : document.querySelector("#smokeOverlay"),
     smokeOverlayImg : document.querySelectorAll(".smokeTest"),
     ImgNames : ["background1.jpg", "background2.jpg", "background3.jpg", "background4.jpg"],
-    indx : 0,
-    savedIndex : 0,
     navList : document.querySelectorAll("#lineList li"),
     navSpanLines : document.querySelectorAll("#lineList li span"),
     navLineState : document.querySelectorAll(".lineState"),
     arrowUp : document.querySelector("#up"),
     arrowDown : document.querySelector("#down"),
+
+    initialiseListenners : function(){
+        this.addWheelListenner();
+        this.addNavIndexListenners();
+        this.addArrowListenners();
+    },
 
     addWheelListenner : function(){
         document.onwheel = (e) =>{
@@ -199,6 +205,7 @@ let bg = {
                     self.savedIndex = self.indx;
                 }
                 self.selectThisElement();
+                self.changeBgImage();
         });
 
         self.arrowDown.addEventListener("click", function(){
@@ -207,11 +214,11 @@ let bg = {
             self.savedIndex = self.indx;
             self.showSmoke();
                 if(self.indx > self.ImgNames.length -1){
-                    console.log("hey");
                     self.indx = 0;
                     self.savedIndex = self.indx;
                 }
                 self.selectThisElement();
+                self.changeBgImage();
         });
     },
 
@@ -278,9 +285,7 @@ let bg = {
 
 
     bg.selectThisElement();
-    bg.addWheelListenner();
-    bg.addNavIndexListenners();
-    bg.addArrowListenners();
+    bg.initialiseListenners();
 
 
 </script>
