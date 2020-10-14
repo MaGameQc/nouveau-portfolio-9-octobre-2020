@@ -222,6 +222,7 @@ let moreDetails = {
 
     showProject1 : function(){
         bg.fadeInSmoke();
+        
     },
 
     showProject2 : function(){
