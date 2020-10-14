@@ -27,7 +27,7 @@ html{
 
 #background{
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     background-image: url("image/background/background1.jpg");
     background-size: cover;
     background-position: center;
@@ -1071,6 +1071,11 @@ video{
     margin: auto;
 }
 
+.projectFixedNavBar i:hover {
+    color: #0760fe;
+    cursor: pointer;
+}
+
 .projectFixedNavBar a {
     margin-left: auto;
 }
@@ -1137,8 +1142,47 @@ video{
     to{transform: translateY(1rem);}
 }
 
-#testing{
+#projectDescription{
     grid-area: description;
-     background-color: antiquewhite;
-     height: 100vh;
+     background-color: #f7f7f7;
+     display: grid;
+     min-height: 100vh;
+     grid-template-columns: 0.5fr 1fr 0.5fr;
+     grid-template-rows: 15rem;
+     grid-template-areas:
+     "empty1 languages empty2" 
+    "projectContext projectContext projectContext"
+     ;
+     padding: 3rem;
+     background-color: blueviolet;
 }
+
+.languagesTitle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    padding: 1.5rem;
+}
+
+.languagesNames{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.languages{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    grid-area: languages;
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-size: 1.5rem;
+}
+.languages i{
+    font-size: 2rem;
+}
+

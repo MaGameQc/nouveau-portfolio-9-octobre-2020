@@ -259,47 +259,9 @@ let bg = {
 
 };
 
-// let moreDetails = {
-//     moreInfoBtn : document.querySelectorAll(".moreInfo"),
-
-//     addListenners : function(){
-//         let self = this;
-//         this.moreInfoBtn.forEach(function(element, index){
-//             element.addEventListener("click", function(){
-//                 self.startLoading(index);
-//             });
-//         });
-//     },
-
-//     startLoading : function(index){
-//         if(index == 0){
-//             this.showProject1();
-//         }
-//         else if(index == 1){
-//             this.showProject2();
-//         }
-//         else if(index == 2){
-//             this.showProject3();
-//         }
-//     },
-
-//     showProject1 : function(){
-//         bg.fadeInSmoke();
-        
-//     },
-
-//     showProject2 : function(){
-
-//     },
-
-//     showProject3 : function(){
-
-//     },
-
-//     show : function(){
-//         console.log(this.moreInfoBtn);
-//     },
-// };
+let projectSection = {
+    
+}
 
 
 
