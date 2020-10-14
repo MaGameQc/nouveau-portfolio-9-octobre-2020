@@ -89,7 +89,7 @@ let bg = {
             element.addEventListener("click", function(){
                 self.saveIndex();
                 self.changeBgImage();
-                self.showSmoke();
+                self.fadeOutSmoke();
                 self.changeContentDescription();
             });
         });
@@ -105,7 +105,23 @@ let bg = {
         this.changeBgImage(this.isIncrementing);
     },
 
-    showSmoke : function(){
+    fadeInSmoke : function(){
+        let element = this.smokeOverlayImg;
+        element.forEach(function(element){
+            element.classList.add("fadeInSmoke");
+        });
+
+        setTimeout(function(){
+            element.forEach(function(element){
+                element.classList.remove("fadeInSmoke");
+            });
+            bg.fadeOutSmoke();
+        }, 2000);
+
+        
+    },
+
+    fadeOutSmoke : function(){
         let element = this.smokeOverlayImg;
         let parent = element[0].parentElement;
         parent.innerHTML = "";
@@ -138,7 +154,6 @@ let bg = {
 
     changeContentDescription : function(){  
             this.contentList.forEach(function(element){
-                console.log(element);
                 element.className = "";
                 element.classList.add("hiddenInfo")
             });
@@ -150,7 +165,7 @@ let bg = {
             this.deselectLastSelectedIndexBar();
             this.indx ++
             this.saveIndex();
-            this.showSmoke();
+            this.fadeOutSmoke();
                 if(this.indx > this.ImgNames.length -1){
                     this.indx = 0;
                     this.changeContentDescription();
@@ -164,7 +179,7 @@ let bg = {
             this.deselectLastSelectedIndexBar();
             this.indx --
             this.saveIndex();
-            this.showSmoke();
+            this.fadeOutSmoke();
                 if(this.indx < 0){
                     this.saveIndex();
                     this.indx = this.ImgNames.length -1;
@@ -180,6 +195,50 @@ let bg = {
 
 
 };
+
+let moreDetails = {
+    allElements : document.querySelectorAll(".moreInfo"),
+
+    addListenners : function(){
+        let self = this;
+        this.allElements.forEach(function(element, index){
+            element.addEventListener("click", function(){
+                self.startLoading(index);
+            });
+        });
+    },
+
+    startLoading : function(index){
+        if(index == 0){
+            this.showProject1();
+        }
+        else if(index == 1){
+            this.showProject2();
+        }
+        else if(index == 2){
+            this.showProject3();
+        }
+    },
+
+    showProject1 : function(){
+        bg.fadeInSmoke();
+    },
+
+    showProject2 : function(){
+
+    },
+
+    showProject3 : function(){
+
+    },
+
+    show : function(){
+        console.log(this.allElements);
+    },
+};
+
+moreDetails.addListenners();
+moreDetails.show();
 
 
 

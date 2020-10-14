@@ -461,83 +461,83 @@ animation: indexHovered .3s ease-in-out forwards;
 
 .smokeTest:nth-child(1){
     position: relative;
-    animation: goAway1 1.2s  linear forwards;
+    animation: fadeOut1 1.2s  linear forwards;
 }
 .smokeTest:nth-child(2){
     position: relative;
-    animation: goAway2 1.2s  linear forwards;
+    animation: fadeOut2 1.2s  linear forwards;
 }
 .smokeTest:nth-child(3){
     position: relative;
-    animation: goAway3 1.2s  linear forwards;
+    animation: fadeOut3 1.2s  linear forwards;
 }
 .smokeTest:nth-child(4){
     position: relative;
-    animation: goAway4 1.2s  linear forwards;
+    animation: fadeOut4 1.2s  linear forwards;
 }
 .smokeTest:nth-child(5){
     position: relative;
-    animation: goAway5 1.2s  linear forwards;
+    animation: fadeOut5 1.2s  linear forwards;
 }
 .smokeTest:nth-child(6){
     position: relative;
-    animation: goAway6 1.2s  linear forwards;
+    animation: fadeOut6 1.2s  linear forwards;
 }
 
 
 .smokeTest:nth-child(7){
     position: relative;
-    animation: goAway7 1.2s  linear forwards;
+    animation: fadeOut7 1.2s  linear forwards;
 }
 
 .smokeTest:nth-child(8){
     position: relative;
-    animation: goAway8 1.2s  linear forwards;
+    animation: fadeOut8 1.2s  linear forwards;
 }
 
 .smokeTest:nth-child(9){
     position: relative;
-    animation: goAway9 1.2s  linear forwards;
+    animation: fadeOut9 1.2s  linear forwards;
 }
 
 .smokeTest:nth-child(10){
     position: relative;
-    animation: goAway10 1.2s  linear forwards;
+    animation: fadeOut10 1.2s  linear forwards;
 }
 
 .smokeTest:nth-child(11){
     position: relative;
-    animation: goAway11 1.2s  linear forwards;
+    animation: fadeOut11 1.2s  linear forwards;
 }
 
 .smokeTest:nth-child(12){
     position: relative;
-    animation: goAway12 1.2s  linear forwards;
+    animation: fadeOut12 1.2s  linear forwards;
 }
 
 .smokeTest:nth-child(13){
     position: relative;
-    animation: goAway13 1.2s  linear forwards;
+    animation: fadeOut13 1.2s  linear forwards;
 }
 
 .smokeTest:nth-child(14){
     position: relative;
-    animation: goAway14 1.2s  linear forwards;
+    animation: fadeOut14 1.2s  linear forwards;
 }
 
 .smokeTest:nth-child(15){
     position: relative;
-    animation: goAway15 1.2s  linear forwards;
+    animation: fadeOut15 1.2s  linear forwards;
 }
 
 .smokeTest:nth-child(16){
     position: relative;
-    animation: goAway16 1.2s  linear forwards;
+    animation: fadeOut16 1.2s  linear forwards;
 }
 
 
 
-@keyframes goAway1{
+@keyframes fadeOut1{
     from{
         transform: scale(1);
         opacity: 1;
@@ -548,7 +548,7 @@ animation: indexHovered .3s ease-in-out forwards;
     }
 }
 
-@keyframes goAway2{
+@keyframes fadeOut2{
     from{
         transform: scale(1);
         opacity: 1;
@@ -559,7 +559,7 @@ animation: indexHovered .3s ease-in-out forwards;
     }
 }
 
-@keyframes goAway3{
+@keyframes fadeOut3{
     from{
         transform: scale(1);
         opacity: 1;
@@ -570,7 +570,7 @@ animation: indexHovered .3s ease-in-out forwards;
     }
 }
 
-@keyframes goAway4{
+@keyframes fadeOut4{
     from{
         transform: scale(1);
         opacity: 1;
@@ -581,7 +581,7 @@ animation: indexHovered .3s ease-in-out forwards;
     }
 }
 
-@keyframes goAway5{
+@keyframes fadeOut5{
     from{
         transform: scale(1);
         opacity: 1;
@@ -592,7 +592,7 @@ animation: indexHovered .3s ease-in-out forwards;
     }
 }
 
-@keyframes goAway6{
+@keyframes fadeOut6{
     from{
         transform: scale(1);
         opacity: 1;
@@ -603,7 +603,7 @@ animation: indexHovered .3s ease-in-out forwards;
     }
 }
 
-@keyframes goAway7{
+@keyframes fadeOut7{
     from{
         transform: scale(1);
         opacity: 1;
@@ -614,7 +614,7 @@ animation: indexHovered .3s ease-in-out forwards;
     }
 }
 
-@keyframes goAway8{
+@keyframes fadeOut8{
     from{
         transform: scale(1);
         opacity: 1;
@@ -625,7 +625,7 @@ animation: indexHovered .3s ease-in-out forwards;
     }
 }
 
-@keyframes goAway9{
+@keyframes fadeOut9{
     from{
         transform: scale(1);
         opacity: 1;
@@ -636,7 +636,7 @@ animation: indexHovered .3s ease-in-out forwards;
     }
 }
 
-@keyframes goAway10{
+@keyframes fadeOut10{
     from{
         transform: scale(1);
         opacity: 1;
@@ -647,7 +647,7 @@ animation: indexHovered .3s ease-in-out forwards;
     }
 }
 
-@keyframes goAway11{
+@keyframes fadeOut11{
     from{
         transform: scale(1);
         opacity: 1;
@@ -658,7 +658,7 @@ animation: indexHovered .3s ease-in-out forwards;
     }
 }
 
-@keyframes goAway12{
+@keyframes fadeOut12{
     from{
         transform: scale(1);
         opacity: 1;
@@ -669,7 +669,7 @@ animation: indexHovered .3s ease-in-out forwards;
     }
 }
 
-@keyframes goAway13{
+@keyframes fadeOut13{
     from{
         transform: scale(1);
         opacity: 1;
@@ -680,7 +680,7 @@ animation: indexHovered .3s ease-in-out forwards;
     }
 }
 
-@keyframes goAway14{
+@keyframes fadeOut14{
     from{
         transform: scale(1);
         opacity: 1;
@@ -691,7 +691,7 @@ animation: indexHovered .3s ease-in-out forwards;
     }
 }
 
-@keyframes goAway15{
+@keyframes fadeOut15{
     from{
         transform: scale(1);
         opacity: 1;
@@ -702,7 +702,7 @@ animation: indexHovered .3s ease-in-out forwards;
     }
 }
 
-@keyframes goAway16{
+@keyframes fadeOut16{
     from{
         transform: scale(1);
         opacity: 1;
@@ -712,6 +712,288 @@ animation: indexHovered .3s ease-in-out forwards;
         opacity: 0;
     }
 }
+
+
+
+
+
+
+
+
+
+
+/********************************************************************************************************* fadeIn ************************************************************/
+/********************************************************************************************************* fadeIn ************************************************************/
+/********************************************************************************************************* fadeIn ************************************************************/
+/********************************************************************************************************* fadeIn ************************************************************/
+
+.fadeInSmoke{
+    width: 100%;
+    height: 100%;
+    /* background-color: dimgray; */
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fadeInSmoke:nth-child(1){
+    position: relative;
+    animation: fadeIn1 1.2s  linear  forwards;
+}
+.fadeInSmoke:nth-child(2){
+    position: relative;
+    animation: fadeIn2 1.2s  linear forwards;
+}
+.fadeInSmoke:nth-child(3){
+    position: relative;
+    animation: fadeIn3 1.2s  linear forwards;
+}
+.fadeInSmoke:nth-child(4){
+    position: relative;
+    animation: fadeIn4 1.2s  linear forwards;
+}
+.fadeInSmoke:nth-child(5){
+    position: relative;
+    animation: fadeIn5 1.2s  linear forwards;
+}
+.fadeInSmoke:nth-child(6){
+    position: relative;
+    animation: fadeIn6 1.2s  linear forwards;
+}
+
+
+.fadeInSmoke:nth-child(7){
+    position: relative;
+    animation: fadeIn7 1.2s  linear forwards;
+}
+
+.fadeInSmoke:nth-child(8){
+    position: relative;
+    animation: fadeIn8 1.2s  linear forwards;
+}
+
+.fadeInSmoke:nth-child(9){
+    position: relative;
+    animation: fadeIn9 1.2s  linear forwards;
+}
+
+.fadeInSmoke:nth-child(10){
+    position: relative;
+    animation: fadeIn10 1.2s  linear forwards;
+}
+
+.fadeInSmoke:nth-child(11){
+    position: relative;
+    animation: fadeIn11 1.2s  linear forwards;
+}
+
+.fadeInSmoke:nth-child(12){
+    position: relative;
+    animation: fadeIn12 1.2s  linear forwards;
+}
+
+.fadeInSmoke:nth-child(13){
+    position: relative;
+    animation: fadeIn13 1.2s  linear forwards;
+}
+
+.fadeInSmoke:nth-child(14){
+    position: relative;
+    animation: fadeIn14 1.2s  linear forwards;
+}
+
+.fadeInSmoke:nth-child(15){
+    position: relative;
+    animation: fadeIn15 1.2s  linear forwards;
+}
+
+.fadeInSmoke:nth-child(16){
+    position: relative;
+    animation: fadeIn16 1.2s  linear forwards;
+}
+
+
+
+@keyframes fadeIn1{
+    from{
+        transform: scale(2.8) translateX(-50vw) translateY(-50vh);
+        opacity: 0;
+    }
+    to{
+        transform: scale(1) translateX(0) translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn2{
+    from{
+        transform: scale(2.8) translateX(-50vw) translateY(-50vh);
+        opacity: 0;
+    }
+    to{
+        transform: scale(1) translateX(0) translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn3{
+    from{
+        transform: scale(2.8) translateX(50vw) translateY(-50vh);
+        opacity: 0;
+    }
+    to{
+        transform: scale(1) translateX(0) translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn4{
+    from{
+        transform: scale(2.8) translateX(50vw) translateY(-50vh);
+        opacity: 0;
+    }
+    to{
+        transform: scale(1) translateX(0) translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn5{
+    from{
+        transform: scale(2.8) translateX(-50vw) translateY(-50vh);
+        opacity: 0;
+    }
+    to{
+        transform: scale(1) translateX(0) translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn6{
+    from{
+        transform: scale(2.8) translateX(-50vw) translateY(-50vh);
+        opacity: 0;
+    }
+    to{
+        transform: scale(1) translateX(0) translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn7{
+    from{
+        transform: scale(2.8) translateX(50vw) translateY(-50vh);
+        opacity: 0;
+    }
+    to{
+        transform: scale(1) translateX(0) translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn8{
+    from{
+        transform: scale(2.8) translateX(50vw) translateY(-50vh);
+        opacity: 0;
+    }
+    to{
+        transform: scale(1) translateX(0) translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn9{
+    from{
+        transform: scale(2.8) translateX(-50vw) translateY(50vh);
+        opacity: 0;
+    }
+    to{
+        transform: scale(1) translateX(0) translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn10{
+    from{
+        transform: scale(2.8) translateX(-50vw) translateY(50vh);
+        opacity: 0;
+    }
+    to{
+        transform: scale(1) translateX(0) translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn11{
+    from{
+        transform: scale(2.8) translateX(50vw) translateY(50vh);
+        opacity: 0;
+    }
+    to{
+        transform: scale(1) translateX(0) translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn12{
+    from{
+        transform: scale(2.8) translateX(50vw) translateY(50vh);
+        opacity: 0;
+    }
+    to{
+        transform: scale(1) translateX(0) translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn13{
+    from{
+        transform: scale(2.8) translateX(-50vw) translateY(50vh);
+        opacity: 0;
+    }
+    to{
+        transform: scale(1) translateX(0) translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn14{
+    from{
+        transform: scale(2.8) translateX(-50vw) translateY(50vh);
+        opacity: 0;
+    }
+    to{
+        transform: scale(1) translateX(0) translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn15{
+    from{
+        transform: scale(2.8) translateX(50vw) translateY(50vh);
+        opacity: 0;
+    }
+    to{
+        transform: scale(1) translateX(0) translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn16{
+    from{
+        transform: scale(2.8) translateX(50vw) translateY(50vh);
+        opacity: 0;
+    }
+    to{
+        transform: scale(1) translateX(0) translateY(0);
+        opacity: 1;
+    }
+}
+
+
+
+
+
 
 
 .color{
