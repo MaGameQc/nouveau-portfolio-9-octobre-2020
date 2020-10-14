@@ -5,7 +5,7 @@ let bg = {
     isIncrementing : false,
     Container : document.getElementById("background"), 
     Url : document.getElementById("background").style,
-    smokeOverlay : document.querySelector("#smokeOverlay"),
+    smokeContainer : document.querySelector("#smokeOverlay"),
     smokeOverlayImg : document.querySelectorAll(".smokeTest"),
     ImgNames : ["background1.jpg", "background2.jpg", "background3.jpg", "background4.jpg"],
     navList : document.querySelectorAll("#lineList li"),
@@ -16,11 +16,53 @@ let bg = {
     touchStartClientY : "",
     contentList : document.querySelectorAll("#listOfContent li"),
 
+    moreDetails: {
+        moreInfoBtn : document.querySelectorAll(".moreInfo"),
+    
+        addListenners : function(){
+            let self = this;
+            this.moreInfoBtn.forEach(function(element, index){
+                element.addEventListener("click", function(){
+                    self.startLoading(index);
+                });
+            });
+        },
+    
+        startLoading : function(index){
+            if(index == 0){
+                this.showProject1();
+            }
+            else if(index == 1){
+                this.showProject2();
+            }
+            else if(index == 2){
+                this.showProject3();
+            }
+        },
+    
+        showProject1 : function(){
+            bg.fadeInSmoke();
+        },
+    
+        showProject2 : function(){
+    
+        },
+    
+        showProject3 : function(){
+    
+        },
+    
+        show : function(){
+            console.log(this.moreInfoBtn);
+        },
+    },
+
     initialiseListenners : function(){
         this.addWheelListenner();
         this.addNavIndexListenners();
         this.addArrowListenners();
         this.addTouchListenners();
+        this.moreDetails.addListenners();
     },
 
     addWheelListenner : function(){
@@ -106,17 +148,38 @@ let bg = {
     },
 
     fadeInSmoke : function(){
+        let smokeContainer = this.smokeContainer;
         let element = this.smokeOverlayImg;
+        this.smokeContainer.style.zIndex = "3";
+
+
         element.forEach(function(element){
             element.classList.add("fadeInSmoke");
         });
-
         setTimeout(function(){
-            element.forEach(function(element){
-                element.classList.remove("fadeInSmoke");
-            });
-            bg.fadeOutSmoke();
-        }, 2000);
+            document.getElementById("main").style.display = "none";
+            document.getElementById("project1").style.display = "grid";
+        },1200);
+
+
+  
+
+       
+
+            setTimeout(function(){
+                element.forEach(function(element){
+                    element.classList.remove("fadeInSmoke");
+                });
+                bg.fadeOutSmoke();
+            },2400);
+            
+            setTimeout(function(){
+                console.log(smokeContainer);
+                smokeContainer.style.display = "none";
+                    
+                    // document.querySelector("background").display = "none";
+                }, 3600);
+        
 
         
     },
@@ -196,50 +259,48 @@ let bg = {
 
 };
 
-let moreDetails = {
-    allElements : document.querySelectorAll(".moreInfo"),
+// let moreDetails = {
+//     moreInfoBtn : document.querySelectorAll(".moreInfo"),
 
-    addListenners : function(){
-        let self = this;
-        this.allElements.forEach(function(element, index){
-            element.addEventListener("click", function(){
-                self.startLoading(index);
-            });
-        });
-    },
+//     addListenners : function(){
+//         let self = this;
+//         this.moreInfoBtn.forEach(function(element, index){
+//             element.addEventListener("click", function(){
+//                 self.startLoading(index);
+//             });
+//         });
+//     },
 
-    startLoading : function(index){
-        if(index == 0){
-            this.showProject1();
-        }
-        else if(index == 1){
-            this.showProject2();
-        }
-        else if(index == 2){
-            this.showProject3();
-        }
-    },
+//     startLoading : function(index){
+//         if(index == 0){
+//             this.showProject1();
+//         }
+//         else if(index == 1){
+//             this.showProject2();
+//         }
+//         else if(index == 2){
+//             this.showProject3();
+//         }
+//     },
 
-    showProject1 : function(){
-        bg.fadeInSmoke();
+//     showProject1 : function(){
+//         bg.fadeInSmoke();
         
-    },
+//     },
 
-    showProject2 : function(){
+//     showProject2 : function(){
 
-    },
+//     },
 
-    showProject3 : function(){
+//     showProject3 : function(){
 
-    },
+//     },
 
-    show : function(){
-        console.log(this.allElements);
-    },
-};
+//     show : function(){
+//         console.log(this.moreInfoBtn);
+//     },
+// };
 
-moreDetails.addListenners();
-moreDetails.show();
 
 
 
