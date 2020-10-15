@@ -176,6 +176,7 @@ let bg = {
             setTimeout(function(){
                 console.log(smokeContainer);
                 smokeContainer.style.display = "none";
+                document.getElementById("background").style.display = "none";
                     
                     // document.querySelector("background").display = "none";
                 }, 3600);
@@ -260,7 +261,7 @@ let bg = {
 };
 
 let projectSection = {
-    
+
 }
 
 

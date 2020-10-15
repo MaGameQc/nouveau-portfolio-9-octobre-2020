@@ -121,7 +121,7 @@ html{
     grid-template-columns: 0fr 0.9fr auto;
     grid-template-rows: 0.5fr 0.5fr;
     grid-template-areas: 
-    "upDownBtn info empty"
+    "upDownBtn info ."
     "upDownBtn info index"
     ;
     /* background-color: grey; */
@@ -1152,60 +1152,185 @@ video{
     grid-area: description;
      background-color: #f7f7f7;
      display: grid;
-     min-height: 100vh;
-     grid-template-columns: 20rem 1fr 20rem;
-     grid-template-rows: 0fr 40vh;
+     grid-template-columns: 0.4fr 1fr 0.4fr;
+     grid-template-rows: auto auto auto;
      grid-template-areas:
-     "empty1 languages empty2" 
-    "projectContext projectContext projectContext"
+     ". languages ." 
+    ". aboutProject ."
+    ". approach ."
      ;
-     padding: 3rem;
      background-color: rgb(192, 192, 192);
 }
 
-.mockUp{
+
+@media only screen and (max-width: 768px) {
+    #projectDescription{
+        grid-template-areas:
+        "languages languages languages" 
+       "aboutProject aboutProject aboutProject"
+       "approach approach approach"
+        ;
+
+    }
+}
+
+
+/* .mockUp{
     grid-area: projectContext;
     width: 10rem;
     height: auto;
+} */
+
+.languagesSection{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    grid-area: languages;
+    background-color: #EEEEEE;
+    text-align: center;
+    font-size: 1.2rem;
 }
 
 .languagesTitle{
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
-    font-size: 1.2rem;
-    padding: 1.2rem;
+    color: black;
+    font-size: 1.5rem;
+    padding-bottom: 1.2rem;
 }
 
-.languagesNames{
+.languagesWraper{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     padding: 1.2rem;
 }
 
+.languagesNames{
+    color: #383838;
+}
+
+.languagesIcons{
+    color: #0760fe;
+    font-size: 5rem;
+}
+
 .languagesNames div{
     width: 15rem;
 }
 
-.languages{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    grid-area: languages;
-    background-color: black;
-    color: white;
-    text-align: center;
-    font-size: 1.2rem;
-}
 
-
-.languages i{
-    font-size: 2rem;
-}
 
 .contextTitle{
     font-size: 1.5rem;
 }
 
+
+
+
+.descriptionSection{
+    background-color: #D9E7FF;
+    grid-area: aboutProject;
+    color: white;
+    font-size: 1.2rem;
+}
+
+
+
+.mobileImage{
+    grid-area: phoneImage;
+    width: 40%;
+    height: auto;
+    float : left;
+    /* background-color: #383838; */
+}
+
+.aboutProject{
+    grid-area: aboutProject;
+    padding: 1.2rem;
+}
+
+.descriptionSection h1{
+    grid-area: aboutTitle;
+    padding-bottom: 1.2rem;
+    color: black;
+    display: inline-block;
+}
+
+ .descriptionSection p{
+    grid-area: aboutProject;
+    padding: 0 1.2rem 1.2rem 0;
+    color: #383838;
+} 
+
+.languages, .descriptionSection{
+    /* padding: 3rem 0; */
+}
+
+
+
+
+.approachSection{
+    background-color: #EEEEEE;
+    grid-area: approach;
+    color: white;
+    font-size: 1.2rem;
+    padding: 3rem;
+
+}
+
+.pcImage{
+    grid-area: pcImage;
+    width: 40%;
+    height: auto;
+    float: right;
+    /* background-color: aqua; */
+}
+
+.approachSection h1{
+    grid-area: approachTitle;
+    padding-bottom: 1.2rem;
+    color: black;
+    display: inline-block;
+}
+
+.approachSection p{
+    grid-area: aboutApproach;
+
+    padding: 0 1.2rem 1.2rem 0;
+    color: #383838;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .descriptionSection{
+        grid-template-areas:
+        "phoneImage phoneImage"
+        "aboutTitle aboutTitle"
+        "aboutProject aboutProject"
+        ;
+    }
+
+    .approachSection{
+        grid-template-areas: 
+        "pcImage pcImage"
+        "approachTitle approachTitle"
+        "aboutApproach aboutApproach"
+        ;
+    }
+
+    .mobileImage{
+        grid-area: phoneImage;
+        width: 100%;
+        height: auto;
+        float : none;
+    }
+
+    .pcImage{
+        grid-area: pcImage;
+        width: 100%;
+        height: auto;
+        float: none;
+    }
+}
