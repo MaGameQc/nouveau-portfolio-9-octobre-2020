@@ -1150,16 +1150,16 @@ video{
 
 #projectDescription{
     grid-area: description;
-     background-color: #f7f7f7;
+     background-color: #EEEEEE;
      display: grid;
      grid-template-columns: 0.4fr 1fr 0.4fr;
-     grid-template-rows: auto auto auto;
+     grid-template-rows: repeat(4, auto);
      grid-template-areas:
      ". languages ." 
     ". aboutProject ."
     ". approach ."
+    ". context ."
      ;
-     background-color: rgb(192, 192, 192);
 }
 
 
@@ -1169,6 +1169,7 @@ video{
         "languages languages languages" 
        "aboutProject aboutProject aboutProject"
        "approach approach approach"
+       "context context context"
         ;
 
     }
@@ -1203,7 +1204,7 @@ video{
 .languagesWraper{
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-around;
     padding: 1.2rem;
 }
 
@@ -1222,10 +1223,6 @@ video{
 
 
 
-.contextTitle{
-    font-size: 1.5rem;
-}
-
 
 
 
@@ -1234,6 +1231,7 @@ video{
     grid-area: aboutProject;
     color: white;
     font-size: 1.2rem;
+    padding: 3rem;
 }
 
 
@@ -1243,6 +1241,7 @@ video{
     width: 40%;
     height: auto;
     float : left;
+    margin-left: -3rem;
     /* background-color: #383838; */
 }
 
@@ -1255,7 +1254,7 @@ video{
     grid-area: aboutTitle;
     padding-bottom: 1.2rem;
     color: black;
-    display: inline-block;
+    display: inline;
 }
 
  .descriptionSection p{
@@ -1285,6 +1284,7 @@ video{
     width: 40%;
     height: auto;
     float: right;
+    margin-right: -3rem;
     /* background-color: aqua; */
 }
 
@@ -1292,7 +1292,7 @@ video{
     grid-area: approachTitle;
     padding-bottom: 1.2rem;
     color: black;
-    display: inline-block;
+    display: inline;
 }
 
 .approachSection p{
@@ -1333,4 +1333,22 @@ video{
         height: auto;
         float: none;
     }
+}
+
+
+/******************************************************* context section ******************************************/
+
+.contextSection{
+    grid-area: context;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #D9E7FF;
+    text-align: center;
+}
+
+
+
+.contextTitle{
+    font-size: 1.5rem;
 }
