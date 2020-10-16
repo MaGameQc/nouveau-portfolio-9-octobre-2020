@@ -1150,7 +1150,6 @@ video{
 
 #projectDescription{
     grid-area: description;
-     background-color: #EEEEEE;
      display: grid;
      grid-template-columns: 0.4fr 1fr 0.4fr;
      grid-template-rows: repeat(4, auto);
@@ -1160,52 +1159,72 @@ video{
     ". approach ."
     ". context ."
      ;
+
+}
+
+.colorFiller1{
+    background-color: #EEEEEE;
+}
+.colorFiller2{
+    background-color: #EEEEEE;
+}
+.colorFiller3{
+    background-color: #D9E7FF;
+}
+.colorFiller4{
+    background-color: #D9E7FF;
+}
+.colorFiller5{
+    background-color: #EEEEEE;
+}
+.colorFiller6{
+    background-color: #EEEEEE;
+}
+.colorFiller7{
+    background-color: #D9E7FF;
+}
+.colorFiller8{
+    background-color: #D9E7FF;
 }
 
 
-@media only screen and (max-width: 768px) {
-    #projectDescription{
-        grid-template-areas:
-        "languages languages languages" 
-       "aboutProject aboutProject aboutProject"
-       "approach approach approach"
-       "context context context"
-        ;
-
-    }
-}
 
 
-/* .mockUp{
-    grid-area: projectContext;
-    width: 10rem;
-    height: auto;
-} */
 
-.languagesSection{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+
+
+.usedLanguagesSection{
+    display: grid;
+    grid-template-areas: 
+    "usedLanguagesTitle usedLanguagesTitle usedLanguagesTitle"
+    "language1 language2 language3"
+    ;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
     grid-area: languages;
     background-color: #EEEEEE;
-    text-align: center;
+    /* text-align: center; */
     font-size: 1.2rem;
+    grid-column-gap: 1.2rem;
+    grid-row-gap: 2rem;
+    padding: 1.2rem;
 }
+
+
+
 
 .languagesTitle{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    grid-area: usedLanguagesTitle;
     color: black;
     font-size: 1.5rem;
-    padding-bottom: 1.2rem;
+    margin: auto;
 }
 
-.languagesWraper{
+.langIconDiv{
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-around;
-    padding: 1.2rem;
+    flex-direction: column;
 }
 
 .languagesNames{
@@ -1222,118 +1241,93 @@ video{
 }
 
 
+/**************************************************************************** ABOUT PROJECT ******************************************************************/
 
 
 
 
-.descriptionSection{
+.aboutProjectSection{
     background-color: #D9E7FF;
+    display: grid;
     grid-area: aboutProject;
-    color: white;
     font-size: 1.2rem;
-    padding: 3rem;
+    grid-template-areas:
+    "mobileImage aboutDescription"
+    "mobileImage aboutDescription"
+    ;
+    /* grid-gap: 1rem; */
+    grid-template-columns: 0.5fr minmax(12rem, 1fr);
+    grid-template-rows: auto auto;
+    grid-gap: 1.2rem;
+    padding: 1.2rem;
 }
+
+
 
 
 
 .mobileImage{
-    grid-area: phoneImage;
-    width: 40%;
+    align-self: center;
+    grid-area: mobileImage;
+    width: 100%;
     height: auto;
-    float : left;
-    margin-left: -3rem;
-    /* background-color: #383838; */
 }
 
-.aboutProject{
-    grid-area: aboutProject;
-    padding: 1.2rem;
+.aboutDescription{
+    grid-area: aboutDescription;    
 }
 
-.descriptionSection h1{
-    grid-area: aboutTitle;
-    padding-bottom: 1.2rem;
+.aboutDescription h1{
+    margin-bottom: 1.2rem;
     color: black;
-    display: inline;
 }
 
- .descriptionSection p{
-    grid-area: aboutProject;
-    padding: 0 1.2rem 1.2rem 0;
+ .aboutDescription p{
     color: #383838;
 } 
 
-.languages, .descriptionSection{
-    /* padding: 3rem 0; */
-}
-
+/**************************************************************************** APPROACH ******************************************************************/
 
 
 
 .approachSection{
     background-color: #EEEEEE;
+    display: grid;
     grid-area: approach;
-    color: white;
     font-size: 1.2rem;
-    padding: 3rem;
+    grid-template-areas:
+    "approachDescription pcImage"
+    "approachDescription pcImage"
+    ;
+    grid-template-columns: minmax(12rem, 1fr) 0.5fr ;
+    grid-template-rows: auto auto;
+    grid-gap: 1.2rem;
+    padding: 1.2rem;
 
 }
 
 .pcImage{
     grid-area: pcImage;
-    width: 40%;
+    width: 100%;
     height: auto;
-    float: right;
-    margin-right: -3rem;
-    /* background-color: aqua; */
+    margin: auto;
 }
 
-.approachSection h1{
-    grid-area: approachTitle;
-    padding-bottom: 1.2rem;
+.approachDescription{
+    grid-area: approachDescription;
+}
+
+.approachDescription h1{
     color: black;
-    display: inline;
+    margin-bottom: 1.2rem;
 }
 
-.approachSection p{
-    grid-area: aboutApproach;
-
-    padding: 0 1.2rem 1.2rem 0;
+.approachDescription p{
     color: #383838;
 }
 
 
-@media only screen and (max-width: 768px) {
-    .descriptionSection{
-        grid-template-areas:
-        "phoneImage phoneImage"
-        "aboutTitle aboutTitle"
-        "aboutProject aboutProject"
-        ;
-    }
 
-    .approachSection{
-        grid-template-areas: 
-        "pcImage pcImage"
-        "approachTitle approachTitle"
-        "aboutApproach aboutApproach"
-        ;
-    }
-
-    .mobileImage{
-        grid-area: phoneImage;
-        width: 100%;
-        height: auto;
-        float : none;
-    }
-
-    .pcImage{
-        grid-area: pcImage;
-        width: 100%;
-        height: auto;
-        float: none;
-    }
-}
 
 
 /******************************************************* context section ******************************************/
@@ -1345,10 +1339,43 @@ video{
     align-items: center;
     background-color: #D9E7FF;
     text-align: center;
+    padding: 1.2rem;
+}
+
+.contextSection p{
+    font-size: 1.2rem;
 }
 
 
 
 .contextTitle{
     font-size: 1.5rem;
+}
+
+
+@media only screen and (max-width: 768px) {
+
+    #projectDescription{
+        grid-template-areas:
+        "languages languages languages" 
+       "aboutProject aboutProject aboutProject"
+       "approach approach approach"
+       "context context context"
+        ;
+
+    }
+
+    .aboutProjectSection{
+        grid-template-areas:
+        "mobileImage mobileImage"
+        "aboutDescription aboutDescription"
+        ;
+    }
+
+    .approachSection{
+        grid-template-areas:
+        "pcImage pcImage"
+        "approachDescription approachDescription"
+        ;
+    }
 }
