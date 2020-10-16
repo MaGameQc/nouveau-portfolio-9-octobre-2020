@@ -1161,6 +1161,25 @@ video{
 
 /************************************************************************ NAVBAR ******************************************************************/
 
+.slideIn{
+    animation: slideIn .8s linear forwards;
+}
+
+.slideOut{
+    animation: slideOut .8s linear forwards;
+}
+
+
+@keyframes slideIn{
+    from{transform: translateX(100vw); opacity: 0;}
+    to{transform: translateX(0); opacity: 1;}
+}
+
+@keyframes slideOut{
+    from{transform: translateX(0); opacity: 1;}
+    to{transform: translateX(100vw); opacity: 0;}
+}
+
 .projectFixedNavBar{
     width: 100%;
     height: 8rem;
@@ -1172,7 +1191,7 @@ video{
     color: white;
     /* background-color: black; */
     grid-gap: 2px;
-    
+    background-color: black;
 }
 
 .projectFixedNavBar div{
@@ -1256,7 +1275,56 @@ video{
     grid-area: navBarFixedSpace;
 }
 
+/****************************************************************************** SEE ALL MENU *********************************************************/
 
+
+#allProjectsMenu{
+    margin-top: 8rem;
+    position: fixed;
+    width: 100%;
+    min-height: calc(100vh - 8rem);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    background-color: black;
+}
+
+#menuTitle{
+    color: white;
+    font-size: 4rem;
+}
+
+#thumbnailContainer{
+    /* background-color: darkcyan; */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.projectThumbnailContainer{
+    width: 25rem;
+    /* background-color: cyan; */
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.thumbnailImg{
+   object-fit: cover; 
+width: 100%;
+height: auto;
+}
+
+.projectThumbnailContainer a{
+    font-size: 3rem;
+    color: white;
+}
 
 
 
