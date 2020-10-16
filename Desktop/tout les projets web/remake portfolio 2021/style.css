@@ -120,7 +120,7 @@ html{
     display: grid;
     grid-template-columns: 0fr 0.9fr auto;
     grid-template-rows: 0.5fr 0.5fr;
-    grid-template-areas: 
+    grid-template-areas:
     "upDownBtn info ."
     "upDownBtn info index"
     ;
@@ -286,7 +286,7 @@ a{
     display: flex;
     justify-content: flex-end;
     align-items: center;
-} 
+}
 
 .line{
     height: 0.2rem;
@@ -363,7 +363,7 @@ animation: indexHovered .3s ease-in-out forwards;
 
 @media only screen and (max-width: 768px) {
     html{
-        font-size: 8px;
+        font-size: 12px;
     }
 
     #main{
@@ -385,7 +385,7 @@ animation: indexHovered .3s ease-in-out forwards;
         display: grid;
         grid-template-columns: 1fr 0.1fr;
         grid-template-rows: 0.5fr 0.5fr 0.5fr;
-        grid-template-areas: 
+        grid-template-areas:
         " info info"
         " info info"
         " index index"
@@ -410,7 +410,7 @@ animation: indexHovered .3s ease-in-out forwards;
     /* background-color: indigo; */
     justify-content: flex-end;
 
-    
+
 }
 
 #lineList{
@@ -427,7 +427,7 @@ animation: indexHovered .3s ease-in-out forwards;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-} 
+}
 
 .line{
     height: 0.4rem;
@@ -993,7 +993,116 @@ animation: indexHovered .3s ease-in-out forwards;
 
 
 
+/*************************************************************************** hamburger animation and look ***********************************************/
 
+
+#arrowLeftHamburgerContainer{ 
+    width : 4rem; 
+    height: 4rem; 
+    background-color : transparent; 
+    position : relative; 
+    display: flex; 
+    justify-content : space-evenly; 
+    align-items : center; 
+    flex-direction : column; 
+    }
+    
+    #arrowLeftLabel{ 
+    width : 100%; 
+    height : 100%; 
+    /* background-color : #F7F7EE;  */
+    display : flex; 
+    align-items: center; 
+    flex-direction : column; 
+    cursor : pointer; 
+    border-radius : 0.5rem; 
+    }
+    
+    #arrowLeftToggle{ 
+    position : absolute; 
+    visibility : hidden; 
+    }
+    
+    .arrowLeftLine{ 
+    width: 80%; 
+    height : 14%; 
+    margin-top : 14%; 
+    background-color : white; 
+    position : relative; 
+    border-radius : 0.2rem; 
+    }
+    
+    @keyframes arrowLeftAnimate1{
+    0%{ transform-origin: left; transform : translate(0, 0) rotate(0deg) scale(1);  opacity: 1;}
+    25%{ }
+    50%{ }
+    75%{ }
+    100%{ transform-origin: left; transform : translate(0, 220%) rotate(-45deg) scale(0.7);  opacity: 1;}
+    }
+    
+    @keyframes arrowLeftAnimate2{
+    0%{ transform-origin: center; transform : translate(0, 0) rotate(0deg) scale(1);  opacity: 1;}
+    25%{ }
+    50%{ }
+    75%{ }
+    100%{ transform-origin: center; transform : translate(0, 0%) rotate(0deg) scale(1);  opacity: 1;}
+    }
+    
+    @keyframes arrowLeftAnimate3{
+    0%{ transform-origin: left; transform : translate(0, 0) rotate(0deg) scale(1);  opacity: 1;}
+    25%{ }
+    50%{ }
+    75%{ }
+    100%{ transform-origin: left; transform : translate(0, -220%) rotate(45deg) scale(0.7);  opacity: 1;}
+    }
+    
+    @keyframes arrowLeftInitial1{
+    0%{ transform-origin: left; transform : translate(0, 220%) rotate(-45deg) scale(0.7);  opacity: 1;}
+    25%{ }
+    50%{ }
+    75%{ }
+    100%{ transform-origin: left; transform : translate(0, 0) rotate(0deg) scale(1);  opacity: 1;}
+    }
+    
+    @keyframes arrowLeftInitial2{
+    0%{ transform-origin: center; transform : translate(0, 0%) rotate(0deg) scale(1);  opacity: 1;}
+    25%{ }
+    50%{ }
+    75%{ }
+    100%{ transform-origin: center; transform : translate(0, 0) rotate(0deg) scale(1);  opacity: 1;}
+    }
+    
+    @keyframes arrowLeftInitial3{
+    0%{ transform-origin: left; transform : translate(0, -220%) rotate(45deg) scale(0.7);  opacity: 1;}
+    25%{ }
+    50%{ }
+    75%{ }
+    100%{ transform-origin: left; transform : translate(0, 0) rotate(0deg) scale(1);  opacity: 1;}
+    }
+    
+    #arrowLeftToggle:checked ~ #arrowLeftLabel .arrowLeftLine:nth-child(1){
+    animation : arrowLeftAnimate1 .5s forwards;
+    }
+    
+    #arrowLeftToggle:checked ~ #arrowLeftLabel .arrowLeftLine:nth-child(2){
+    animation : arrowLeftAnimate2 .5s forwards;
+    }
+    
+    #arrowLeftToggle:checked ~ #arrowLeftLabel .arrowLeftLine:nth-child(3){
+    animation : arrowLeftAnimate3 .5s forwards;
+    }
+    
+    .arrowLeftLine:nth-child(1){
+    animation: arrowLeftInitial1 .5s forwards;
+    }
+    
+    .arrowLeftLine:nth-child(2){
+    animation: arrowLeftInitial2 .5s forwards;
+    }
+    
+    .arrowLeftLine:nth-child(3){
+    animation: arrowLeftInitial3 .5s forwards;
+    }
 
 
 
@@ -1016,9 +1125,9 @@ animation: indexHovered .3s ease-in-out forwards;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 100vh auto;
-    grid-template-areas: 
+    grid-template-areas:
     "landingVideo"
-    "description"
+    "projectDescription"
     ;
 }
 
@@ -1026,13 +1135,13 @@ animation: indexHovered .3s ease-in-out forwards;
 
 .landingVideoContainer{
     grid-area: landingVideo;
-    /* position: absolute; */
+    position: relative;
     display: grid;
-    grid-template-columns: 0.4fr 1fr 0.4fr;
-    grid-template-rows: 8rem 1fr 8rem;
-    grid-template-areas: 
-    "navBarWhiteSpace navBarWhiteSpace navBarWhiteSpace"
-    "projectInfo projectInfo projectInfo "
+    grid-template-columns: 15rem 1fr 15rem;
+    grid-template-rows: 8rem auto 8rem;
+    grid-template-areas:
+    "navBarFixedSpace navBarFixedSpace navBarFixedSpace"
+    ". projectInfo ."
     "goDown goDown goDown"
     ;
     /* background-color: rgba(0, 128, 128, 0.4); */
@@ -1045,70 +1154,98 @@ video{
     height: 100vh;
   /* position: fixed; */
   z-index: -1;
-  top: 0;
-  left: 0;
+  /* top: 0;
+  left: 0; */
   filter: grayscale(100%) brightness(30%) contrast(110%);
 }
+
+
+
+
+
+/************************************************************************ NAVBAR ******************************************************************/
 
 .projectFixedNavBar{
     width: 100%;
     height: 8rem;
     position: fixed;
+    top:0;
+    left: 0;
     display: grid;
-    grid-template-columns: 20rem 1fr 20rem;
+    grid-template-columns: 15rem 1fr 15rem;
     padding: 3rem;
-    font-size: 2rem;
-    align-content: center;
+    font-size: 1.5rem;
     color: white;
-    /* background-color: black; */
+    background-color: black;
+    grid-gap: 2px;
+    
 }
 
-.projectFixedNavBar p {
-    /* width: 100%; */
-    margin-right: auto;
-    /* background-color: blueviolet; */
+.projectFixedNavBar div{
+    background-color: aqua;
+    width: 100%;
+    display: flex;
+
 }
 
-.projectFixedNavBar i {
-    /* width: 100%; */
-    margin: auto;
-    /* background-color: blueviolet; */
+.projectFixedNavBar div:nth-child(1){
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 
-.projectFixedNavBar i:hover {
+.projectFixedNavBar div:nth-child(2){
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.projectFixedNavBar div:nth-child(3){
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#arrowLeftHamburgerContainer{
+    display: none;
+}
+
+
+
+
+
+.projectFixedNavBar div i:hover {
     color: #0760fe;
     cursor: pointer;
 }
 
-.projectFixedNavBar a {
-    /* width: 100%; */
-    margin-left: auto;
-    /* background-color: blueviolet; */
-}
 
 
-
-/* .projectFixedNavBar{
+.navBarFixedSpace{
+    /* background-color: #D9E7FF; */
     width: 100%;
-    height: 8rem;
-    position: fixed;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 3rem;
-    font-size: 2rem;
-    color: white;
-} */
-
-
-.navBarWhiteSpace{
-    grid-area: navBarWhiteSpace;
+    height: 100%;
+    grid-area: navBarFixedSpace;
 }
+
+
+
+
+
+
+/****************************************************************************** PROJECT INFO *********************************************************/
+
+
+
 
 .projectInfo{
     grid-area: projectInfo ;
-    grid-row: 2/3;
-    grid-column: 2/3;
+    /* grid-row: 2/3;
+    grid-column: 2/3; */
     /* background-color: violet; */
     color: white;
     padding: 3rem;
@@ -1148,13 +1285,48 @@ video{
     to{transform: translateY(1rem);}
 }
 
+
+@media only screen and (max-width: 768px) {
+    .projectFixedNavBar{
+        padding: 0rem;
+        grid-template-columns: auto auto 15rem;
+    }
+    .projectFixedNavBar div p{
+        display: none;
+    }
+    .projectFixedNavBar div i{
+        display: none;
+    }
+    .projectFixedNavBar div a{
+        display: none;
+    }
+
+    #arrowLeftHamburgerContainer{
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .landingVideoContainer{
+        grid-template-columns: 15rem 1fr 15rem;
+        grid-template-rows: 8rem auto 8rem;
+        grid-template-areas:
+        "navBarFixedSpace navBarFixedSpace navBarFixedSpace"
+        "projectInfo projectInfo projectInfo "
+        "goDown goDown goDown"
+        ;
+    }
+}
+
+/*********************************************************************************** PROJECT DESCRIPTION *******************************************************/
+
 #projectDescription{
-    grid-area: description;
+    grid-area: projectDescription;
      display: grid;
      grid-template-columns: 0.4fr 1fr 0.4fr;
      grid-template-rows: repeat(4, auto);
      grid-template-areas:
-     ". languages ." 
+     ". languages ."
     ". aboutProject ."
     ". approach ."
     ". context ."
@@ -1195,7 +1367,7 @@ video{
 
 .usedLanguagesSection{
     display: grid;
-    grid-template-areas: 
+    grid-template-areas:
     "usedLanguagesTitle usedLanguagesTitle usedLanguagesTitle"
     "language1 language2 language3"
     ;
@@ -1274,7 +1446,7 @@ video{
 }
 
 .aboutDescription{
-    grid-area: aboutDescription;    
+    grid-area: aboutDescription;
 }
 
 .aboutDescription h1{
@@ -1284,7 +1456,7 @@ video{
 
  .aboutDescription p{
     color: #383838;
-} 
+}
 
 /**************************************************************************** APPROACH ******************************************************************/
 
@@ -1357,7 +1529,7 @@ video{
 
     #projectDescription{
         grid-template-areas:
-        "languages languages languages" 
+        "languages languages languages"
        "aboutProject aboutProject aboutProject"
        "approach approach approach"
        "context context context"
@@ -1378,4 +1550,30 @@ video{
         "approachDescription approachDescription"
         ;
     }
+
+    /* .colorFiller1{
+        display: none;
+    }
+    .colorFiller2{
+        display: none;
+        }
+    .colorFiller3{
+        display: none;
+        }
+    .colorFiller4{
+        display: none;
+        }
+    .colorFiller5{
+        display: none;
+        }
+    .colorFiller6{
+        display: none;
+        }
+    .colorFiller7{
+        display: none;
+        }
+    .colorFiller8{
+        display: none;
+        } */
+
 }

@@ -13,12 +13,12 @@
 
     
 
-    <div id="background">
+    <div id="background" style="display: none;">
 
     </div>
 
 
-    <div id="smokeOverlay">
+    <div id="smokeOverlay" style="display: none;">
 
         <div class="smokeTest">
          <img class="smoke" src="image/smoke.png" alt="">
@@ -72,23 +72,40 @@
      </div>
 
 
-    <div id="project1" style="display: none;">
+    <div id="project1" style="">
       
 
         <div class="landingVideoContainer">
             <video src="video/tom.mp4" autoplay muted></video>
             <div id="colorBackgroundOverlay"></div>
             
+            <nav class="navBarFixedSpace">
+
+            </nav>
 
             <nav class="projectFixedNavBar">
-                <p>Tommy Audet</p>
-                <i class="fas fa-times"></i>
-                <a href="">Voir Tous Les Projets</a>
+                <div>
+                    <p>Tommy Audet</p>
+                </div>
+                <div>
+                    <i class="fas fa-times"></i>
+                </div>
+                <div>
+                    <a href="">Voir Tous Les Projets</a>
+                    <div id="arrowLeftHamburgerContainer">
+                        <input id="arrowLeftToggle" type="checkbox">
+                        <label id="arrowLeftLabel" for="arrowLeftToggle">
+                            <span class="arrowLeftLine"></span>
+                            <span class="arrowLeftLine"></span>
+                            <span class="arrowLeftLine"></span>
+                        </label>
+                    </div>
+                </div>
+
+
             </nav>
 
-            <nav class="navBarWhiteSpace">
 
-            </nav>
 
             <section class="projectInfo">
                 <h1 class="projectTitle">BurgerMaker</h1>
@@ -198,7 +215,7 @@ as
 
      
 
-     <div id="main">
+     <div id="main" style="display: none;">
         <div id="colorBackgroundOverlay">
 
         </div> 
