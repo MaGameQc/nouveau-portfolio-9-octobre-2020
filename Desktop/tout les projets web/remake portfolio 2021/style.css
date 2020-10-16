@@ -1144,7 +1144,6 @@ animation: indexHovered .3s ease-in-out forwards;
     ". projectInfo ."
     "goDown goDown goDown"
     ;
-    /* background-color: rgba(0, 128, 128, 0.4); */
 }
 
 video{
@@ -1152,10 +1151,7 @@ video{
     position: absolute;
     width: 100%;
     height: 100vh;
-  /* position: fixed; */
   z-index: -1;
-  /* top: 0;
-  left: 0; */
   filter: grayscale(100%) brightness(30%) contrast(110%);
 }
 
@@ -1169,20 +1165,18 @@ video{
     width: 100%;
     height: 8rem;
     position: fixed;
-    top:0;
-    left: 0;
     display: grid;
     grid-template-columns: 15rem 1fr 15rem;
     padding: 3rem;
     font-size: 1.5rem;
     color: white;
-    background-color: black;
+    /* background-color: black; */
     grid-gap: 2px;
     
 }
 
 .projectFixedNavBar div{
-    background-color: aqua;
+    /* background-color: aqua; */
     width: 100%;
     display: flex;
 
@@ -1214,7 +1208,37 @@ video{
     display: none;
 }
 
+@media only screen and (max-width: 768px) {
+    .projectFixedNavBar{
+        padding: 0rem;
+        grid-template-columns: auto auto 15rem;
+    }
+    .projectFixedNavBar div p{
+        display: none;
+    }
+    .projectFixedNavBar div i{
+        display: none;
+    }
+    .projectFixedNavBar div a{
+        display: none;
+    }
 
+    #arrowLeftHamburgerContainer{
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .landingVideoContainer{
+        grid-template-columns: 15rem 1fr 15rem;
+        grid-template-rows: 8rem auto 8rem;
+        grid-template-areas:
+        "navBarFixedSpace navBarFixedSpace navBarFixedSpace"
+        "projectInfo projectInfo projectInfo "
+        "goDown goDown goDown"
+        ;
+    }
+}
 
 
 
@@ -1286,37 +1310,6 @@ video{
 }
 
 
-@media only screen and (max-width: 768px) {
-    .projectFixedNavBar{
-        padding: 0rem;
-        grid-template-columns: auto auto 15rem;
-    }
-    .projectFixedNavBar div p{
-        display: none;
-    }
-    .projectFixedNavBar div i{
-        display: none;
-    }
-    .projectFixedNavBar div a{
-        display: none;
-    }
-
-    #arrowLeftHamburgerContainer{
-        display: block;
-    }
-}
-
-@media only screen and (max-width: 768px) {
-    .landingVideoContainer{
-        grid-template-columns: 15rem 1fr 15rem;
-        grid-template-rows: 8rem auto 8rem;
-        grid-template-areas:
-        "navBarFixedSpace navBarFixedSpace navBarFixedSpace"
-        "projectInfo projectInfo projectInfo "
-        "goDown goDown goDown"
-        ;
-    }
-}
 
 /*********************************************************************************** PROJECT DESCRIPTION *******************************************************/
 
