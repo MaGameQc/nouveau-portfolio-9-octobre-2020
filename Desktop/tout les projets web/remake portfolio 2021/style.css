@@ -1120,7 +1120,7 @@ animation: indexHovered .3s ease-in-out forwards;
 
 /****************************************************************** PROJECT 1 ***********************************************************************************/
 
-#project1{
+#project{
     position: relative;
     display: grid;
     grid-template-columns: 1fr;
@@ -1222,15 +1222,14 @@ video{
 
 @media only screen and (max-width: 768px) {
     .projectFixedNavBar{
-        padding: 0rem;
         grid-template-columns: auto auto 15rem;
     }
     .projectFixedNavBar div p{
         display: none;
     }
-    .projectFixedNavBar div i{
+    /* .projectFixedNavBar div i{
         display: none;
-    }
+    } */
     .projectFixedNavBar div a{
         display: none;
     }
