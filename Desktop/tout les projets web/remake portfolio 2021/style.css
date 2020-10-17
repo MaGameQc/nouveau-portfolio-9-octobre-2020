@@ -1161,24 +1161,12 @@ video{
 
 /************************************************************************ NAVBAR ******************************************************************/
 
-.slideIn{
-    animation: slideIn .8s linear forwards;
-}
-
-.slideOut{
-    animation: slideOut .8s linear forwards;
-}
 
 
-@keyframes slideIn{
-    from{transform: translateX(100vw); opacity: 0;}
-    to{transform: translateX(0); opacity: 1;}
-}
 
-@keyframes slideOut{
-    from{transform: translateX(0); opacity: 1;}
-    to{transform: translateX(100vw); opacity: 0;}
-}
+
+
+
 
 .projectFixedNavBar{
     width: 100%;
@@ -1191,7 +1179,12 @@ video{
     color: white;
     /* background-color: black; */
     grid-gap: 2px;
-    background-color: black;
+    /* background-color: black; */
+}
+
+.seeAllProjects:hover{
+    cursor: pointer;
+    color: #0760fe;
 }
 
 .projectFixedNavBar div{
@@ -1276,23 +1269,38 @@ video{
 }
 
 /****************************************************************************** SEE ALL MENU *********************************************************/
-
+.slideIn{
+    animation: slideIn .8s linear forwards !important;
+}
 
 #allProjectsMenu{
+    animation: slideOut .8s linear forwards;
+    z-index: 1;
+    display:none;
     margin-top: 8rem;
     position: fixed;
     width: 100%;
     min-height: calc(100vh - 8rem);
-    display: flex;
+    /* display: flex; */
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
     background-color: black;
 }
 
+@keyframes slideIn{
+    from{transform: translateX(100vw); opacity: 0;}
+    to{transform: translateX(0); opacity: 1;}
+}
+
+@keyframes slideOut{
+    from{transform: translateX(0); opacity: 1;}
+    to{transform: translateX(100vw); opacity: 0;}
+}
+
 #menuTitle{
     color: white;
-    font-size: 4rem;
+    font-size: 3rem;
 }
 
 #thumbnailContainer{
@@ -1323,7 +1331,7 @@ height: auto;
 
 .projectThumbnailContainer a{
     font-size: 3rem;
-    color: white;
+    
 }
 
 

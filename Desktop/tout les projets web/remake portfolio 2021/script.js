@@ -261,12 +261,55 @@ let bg = {
 };
 
 let projectSection = {
+    seeAllProjects : document.querySelector(".seeAllProjects"),
+    hamburgerIcon : document.querySelector("#arrowLeftLabel"),
+    menu : document.querySelector("#allProjectsMenu"),
+    navBar : document.querySelector(".projectFixedNavBar"),
+    state : false,
 
+    addClass : function(){
+        this.menu.style.display = "flex";
+        this.menu.classList.add("slideIn");
+        this.state = true;
+    },
+
+    removeClass : function(){
+        this.menu.classList.add("slideOut");
+        setTimeout(function(){
+            projectSection.menu.style.display = "none";
+        }, 800);
+        this.state = false;
+    },
+
+    toggleClass : function(){
+        if(this.menu.classList.contains("slideIn")){
+            this.navBar.style.backgroundColor = "transparent";
+        } else{
+            setTimeout(function(){
+                projectSection.navBar.style.backgroundColor = "black";
+            },800);
+
+        }
+        this.menu.classList.toggle("slideIn");
+    },
+
+    addListenners : function(){
+        let self = this;
+        this.seeAllProjects.addEventListener("click", function(){
+            self.toggleClass();
+        });
+        this.hamburgerIcon.addEventListener("click", function(){
+            self.toggleClass();
+        });
+    }
 }
 
 
+projectSection.menu.style.display = "flex";
 
 
 
     bg.selectThisIndexBar();
     bg.initialiseListenners();
+
+    projectSection.addListenners();
