@@ -1,4 +1,101 @@
 
+let smokeOverlay = {
+
+}
+
+let landingPage = {
+    index : 0,
+    navBar: document.querySelector("#navbarContainer"),
+
+    arrow : {
+        container: document.querySelector("#btnContainer"),
+        up : document.querySelector("#up"),
+        down : document.querySelector("#down"),
+    },
+
+    info : {
+        container : document.querySelector("#informationContainer"),
+        description : document.querySelector(".contentDescription"),
+        title : document.querySelector(".contentTitle"),
+        moreInfoBtn : document.querySelector(".moreInfo"),
+    },
+
+    indexNav : {
+        container : document.querySelector("#indexContainer"),
+        allListItem : document.querySelectorAll("#indexContainer li"),
+        allLineState : document.querySelectorAll("#indexContainer li  .lineState"),
+        allLine : document.querySelectorAll("#indexContainer li  .line"),
+    },
+
+    footer : {
+
+    },
+
+    bg : {
+        bgContainer : document.querySelector("#background"),
+        bgStyle : document.querySelector("#background").style,
+        bgUrlList : ["background1.jpg", "background2.jpg", "background3.jpg", "background4.jpg"],
+    },
+
+    addWheelListenners : function(){
+        document.onwheel = (e) =>{
+            if(e.deltaY > 0){
+                landingPage.incrementIndex();
+                landingPage.changeBgUrl();
+            } else{
+                landingPage.decrementIndex();
+                landingPage.changeBgUrl();
+            }
+        }
+    },
+
+    addArrowListenners : function(){
+        let self = landingPage;
+
+        self.arrow.down.addEventListener("click", function(){
+            self.incrementIndex();
+            self.changeBgUrl();
+        });
+
+        self.arrow.up.addEventListener("click", function(){
+            self.decrementIndex();
+            self.changeBgUrl();
+        });
+    },
+
+    changeBgUrl : function(){
+        this.bg.bgStyle.backgroundImage = "url('image/background/background" + this.index + ".jpg')";
+    },
+
+    incrementIndex : function(){
+        if(this.index == this.bg.bgUrlList.length-1){
+            this.index = this.bg.bgUrlList.length-1;
+        }else{
+            this.index ++
+        }
+    },
+
+    decrementIndex : function(){
+        let indexZero = 0;
+        if(this.index == indexZero){
+            this.index = indexZero;
+        }else{
+            this.index --
+        }
+    },
+
+    show: function(){
+        console.log(this.index);
+    },  
+
+};
+
+landingPage.addWheelListenners();
+landingPage.addArrowListenners();
+landingPage.show();
+
+
+
 let bg = {
     indx : 0,
     savedNavIndex : 0,
@@ -260,6 +357,20 @@ let bg = {
 
 };
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // let projectSection = {
 //     seeAllProjects : document.querySelector(".seeAllProjects"),
 //     hamburgerIcon : document.querySelector("#arrowLeftLabel"),
@@ -309,7 +420,7 @@ let bg = {
 
 
 
-    bg.selectThisIndexBar();
-    bg.initialiseListenners();
+    // bg.selectThisIndexBar();
+    // bg.initialiseListenners();
 
     // projectSection.addListenners();
