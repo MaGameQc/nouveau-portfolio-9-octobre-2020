@@ -14,7 +14,8 @@ let landingPage = {
     },
 
     info : {
-        container : document.querySelector("#informationContainer"),
+        contentContainer : document.querySelector("#contentContainer"),
+        infoContainer : document.querySelector("#informationContainer"),
         description : document.querySelector(".contentDescription"),
         title : document.querySelector(".contentTitle"),
         moreInfoBtn : document.querySelector(".moreInfo"),
@@ -37,14 +38,19 @@ let landingPage = {
         bgUrlList : ["background1.jpg", "background2.jpg", "background3.jpg", "background4.jpg"],
     },
 
+    touchVar : {
+        touchStartY : "",
+    },
+
     addWheelListenners : function(){
+        let self = this;
         document.onwheel = (e) =>{
             if(e.deltaY > 0){
-                landingPage.incrementIndex();
-                landingPage.changeBgUrl();
+                self.incrementIndex();
+                self.changeBgUrl();
             } else{
-                landingPage.decrementIndex();
-                landingPage.changeBgUrl();
+                self.decrementIndex();
+                self.changeBgUrl();
             }
         }
     },
@@ -61,6 +67,30 @@ let landingPage = {
             self.decrementIndex();
             self.changeBgUrl();
         });
+    },
+
+    addTouchListenners : function(){
+        let self = this;
+        this.info.contentContainer.addEventListener("touchstart", function(ev){
+            let y = ev.touches[0].clientY;
+            self.touchVar.touchStartY = y;
+        });
+
+        this.info.contentContainer.addEventListener("touchmove", function(ev){
+            let yMoove = ev.changedTouches[0].clientY;
+            if(yMoove - self.touchVar.touchStartY > 150){
+                    self.incrementIndex();
+                    self.changeBgUrl();
+                    self.touchVar.touchStartY = yMoove;
+                }
+            if(yMoove - bg.touchStartClientY < -150){
+                self.decrementIndex();
+                self.changeBgUrl();
+                self.touchVar.touchStartY = yMoove;
+            }
+        });
+
+        
     },
 
     changeBgUrl : function(){
@@ -92,6 +122,7 @@ let landingPage = {
 
 landingPage.addWheelListenners();
 landingPage.addArrowListenners();
+landingPage.addTouchListenners();
 landingPage.show();
 
 
