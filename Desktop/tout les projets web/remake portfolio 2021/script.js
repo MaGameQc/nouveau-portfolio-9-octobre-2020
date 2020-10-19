@@ -53,7 +53,7 @@ let landingPage = {
         up : document.querySelector("#up"),
         down : document.querySelector("#down"),
 
-        addArrowListenners : function(){
+        addArrowListeners : function(){
             let mainObj = landingPage;
                 this.down.addEventListener("click", function(){
                     mainObj.incrementIndex();
@@ -84,7 +84,7 @@ let landingPage = {
             this.listOfContent[landingPage.index].classList.add("showInfo");
         },
 
-        addMoreInfoListenners : function(){
+        addMoreInfoListeners : function(){
             let mainObj = landingPage;
             let self = this;
             this.moreInfoBtn.forEach(function(element, index){
@@ -94,7 +94,7 @@ let landingPage = {
             });
         },
 
-        addTouchListenners : function(){
+        addTouchListeners : function(){
             let mainObj = landingPage;
             this.contentContainer.addEventListener("touchstart", function(ev){
                 let y = ev.touches[0].clientY;
@@ -127,7 +127,7 @@ let landingPage = {
             this.selectThisNavIndex(this.savedIndex);
         },
 
-        addNavIndexListenners : function(){
+        addNavIndexListeners : function(){
             const self = this;
             this.allListItem.forEach(function(element, index){
                 element.addEventListener("mouseenter", function(){
@@ -201,7 +201,7 @@ let landingPage = {
         touchStartY : "",
     },
 
-    addWheelListenners : function(addOrRemove){
+    addWheelListeners : function(addOrRemove){
         let self = this;
         document.addEventListener("wheel", function listenToWheel (e){
             if(self.removeListener == true){
@@ -262,16 +262,16 @@ let landingPage = {
         this.removeListener = false;
         this.bg.initialise();
         this.navIndex.initialise();
-        this.navIndex.addNavIndexListenners();
-        this.addWheelListenners();
-        this.arrow.addArrowListenners();
-        this.info.addMoreInfoListenners();
-        this.info.addTouchListenners();
+        this.navIndex.addNavIndexListeners();
+        this.addWheelListeners();
+        this.arrow.addArrowListeners();
+        this.info.addMoreInfoListeners();
+        this.info.addTouchListeners();
     },  
 
-    removeEventListenners: function(){
+    removeEventListeners: function(){
         this.removeListener = true;
-        this.addWheelListenners();
+        this.addWheelListeners();
 
     },
 
@@ -279,7 +279,7 @@ let landingPage = {
     switchToProjectPage : function(index){
         console.log( "testtesttesttesttesttesttesttesttesttest");
 
-        this.removeEventListenners();
+        this.removeEventListeners();
         smokeOverlay.fadeInSmoke();
         smokeOverlay.main.style.zIndex = "1";
         setTimeout(function(){
@@ -302,3 +302,128 @@ let landingPage = {
 
 
 landingPage.initialise();
+
+
+
+projectSection = {
+    index : 0,
+    projectDynamicElements : {
+        
+        landingPageTitle : document.querySelector(".projectTitle"),
+        landingPageInfo : document.querySelector(".projectDescription"),
+        landingPageTryBtn : document.querySelector(".tryLink"),
+      
+        aboutProjectTitle : document.querySelector(".projectDescription"),
+        aboutProjectDescription : document.querySelector(".projectDescription"),
+        aboutProjectImage : document.querySelector(".projectDescription"),
+       
+        approachTitle : document.querySelector(".projectDescription"),
+        approachDescription : document.querySelector(".projectDescription"),
+        approachImage : document.querySelector(".projectDescription"),
+        
+        role : document.querySelector(".projectDescription"),
+        projectDuration: document.querySelector(".projectDescription"),
+        projectDate: document.querySelector(".projectDescription"), 
+        
+        generatePageContent : function(project){
+            this.landingPageTitle.textContent = project.landingPageTitle;    
+            this.landingPageInfo.textContent = project.landingPageInfo;
+            this.landingPageTryBtn.href = project.landingPageTryBtn;
+
+            this.aboutProjectTitle.textContent = project.aboutProjectTitle;
+            this.aboutProjectDescription.textContent = project.aboutProjectDescription;
+            this.aboutProjectImage.textContent = project.aboutProjectImage;
+
+            this.approachTitle.textContent = project.approachTitle;
+            this.approachDescription.textContent = project.approachDescription;
+            this.approachImage.textContent = project.approachImage;
+
+            this.role.textContent = project.role;
+            this.projectDuration = project.projectDuration;
+            this.projectDate = project.projectDate;
+        },
+        
+        
+    },
+
+    project1 : {
+        landingPageTitle: "BurgerMaker",
+        landingPageInfo: "C'est une petite application web qui vous permet de choisir l'animation de votre hamburger icon préféré, copier son code HTML et CSS, puis le coller dans votre propre projet.",
+        landingPageTryBtn: "https://magame.ca/hamburgerMaker/",
+        aboutProjectTitle: "C'est Quoi BurgerMaker ?",
+        aboutProjectDescription: "en tant que développeur, une des choses que j'aime bien faire sont les hamburger icons. ce fameux bouton qui est toujours là à nous attendre si on va sur un site web avec un appareille mobile. Puisque je cherchais un projet qui me ferait pratiquer Javascript, je me suis dit, bah je devrais coder une liste de ces icônes, tu choisie celle que tu veut sur le site, et ca te génère le code HTML et CSS afin de pouvoir t'en servir dans tes projets. Ce projet m'en à appris plus sur la programmation orientée objet, qu'il est important d'encapsuler, de séparer son code en plusieurs methodes, sinon, c'est très difficile de s'y retrouver.",
+        aboutProjectImage: "image/mockUps/iphoneMockUpPortrait.png",
+        approachTitle: "Approche",
+        approachDescription: "en tant que développeur, une des choses que j'aime bien faire sont les hamburger icons. ce fameux bouton qui est toujours là à nous attendre si on va sur un site web avec un appareille mobile. Puisque je cherchais un projet qui me ferait pratiquer Javascript, je me suis dit, bah je devrais coder une liste de ces icônes, tu choisie celle que tu veut sur le site, et ca te génère le code HTML et CSS afin de pouvoir t'en servir dans tes projets. Ce projet m'en à appris plus sur la programmation orientée objet, qu'il est important d'encapsuler, de séparer son code en plusieurs methodes dans un objet, sinon, c'est très difficile de s'y retrouver.",
+        approachImage: "image/mockUps/pcMockUp.png",
+        role: "Front-End / UI",
+        projectDuration: "1 Semaine",
+        projectDate: "Octobre 2020",
+    },
+
+    project2 : {
+        landingPageTitle: "BurgerMaker;salkfjslfjsa",
+        landingPageInfo: "C'est une petite application web qui vous permet de choisir l'animation de votre hamburger icon préféré, copier son code HTML et CSS, puis le coller dans votre propre projet.",
+        landingPageTryBtn: "https://magame.ca/hamburgerMaker/",
+        aboutProjectTitle: "C'est Quoi BurgerMaker ?",
+        aboutProjectDescription: "en tant que développeur, une des choses que j'aime bien faire sont les hamburger icons. ce fameux bouton qui est toujours là à nous attendre si on va sur un site web avec un appareille mobile. Puisque je cherchais un projet qui me ferait pratiquer Javascript, je me suis dit, bah je devrais coder une liste de ces icônes, tu choisie celle que tu veut sur le site, et ca te génère le code HTML et CSS afin de pouvoir t'en servir dans tes projets. Ce projet m'en à appris plus sur la programmation orientée objet, qu'il est important d'encapsuler, de séparer son code en plusieurs methodes, sinon, c'est très difficile de s'y retrouver.",
+        aboutProjectImage: "image/mockUps/iphoneMockUpPortrait.png",
+        approachTitle: "Approche",
+        approachDescription: "en tant que développeur, une des choses que j'aime bien faire sont les hamburger icons. ce fameux bouton qui est toujours là à nous attendre si on va sur un site web avec un appareille mobile. Puisque je cherchais un projet qui me ferait pratiquer Javascript, je me suis dit, bah je devrais coder une liste de ces icônes, tu choisie celle que tu veut sur le site, et ca te génère le code HTML et CSS afin de pouvoir t'en servir dans tes projets. Ce projet m'en à appris plus sur la programmation orientée objet, qu'il est important d'encapsuler, de séparer son code en plusieurs methodes dans un objet, sinon, c'est très difficile de s'y retrouver.",
+        approachImage: "image/mockUps/pcMockUp.png",
+        role: "Front-End / UI",
+        projectDuration: "1 Semaine",
+        projectDate: "Octobre 2020",
+    },
+
+    project3 : {
+        landingPageTitle: "BurgerMaker;salkfjslfjsa",
+        landingPageInfo: "C'est une petite application web qui vous permet de choisir l'animation de votre hamburger icon préféré, copier son code HTML et CSS, puis le coller dans votre propre projet.",
+        landingPageTryBtn: "https://magame.ca/hamburgerMaker/",
+        aboutProjectTitle: "C'est Quoi BurgerMaker ?",
+        aboutProjectDescription: "en tant que développeur, une des choses que j'aime bien faire sont les hamburger icons. ce fameux bouton qui est toujours là à nous attendre si on va sur un site web avec un appareille mobile. Puisque je cherchais un projet qui me ferait pratiquer Javascript, je me suis dit, bah je devrais coder une liste de ces icônes, tu choisie celle que tu veut sur le site, et ca te génère le code HTML et CSS afin de pouvoir t'en servir dans tes projets. Ce projet m'en à appris plus sur la programmation orientée objet, qu'il est important d'encapsuler, de séparer son code en plusieurs methodes, sinon, c'est très difficile de s'y retrouver.",
+        aboutProjectImage: "image/mockUps/iphoneMockUpPortrait.png",
+        approachTitle: "Approche",
+        approachDescription: "en tant que développeur, une des choses que j'aime bien faire sont les hamburger icons. ce fameux bouton qui est toujours là à nous attendre si on va sur un site web avec un appareille mobile. Puisque je cherchais un projet qui me ferait pratiquer Javascript, je me suis dit, bah je devrais coder une liste de ces icônes, tu choisie celle que tu veut sur le site, et ca te génère le code HTML et CSS afin de pouvoir t'en servir dans tes projets. Ce projet m'en à appris plus sur la programmation orientée objet, qu'il est important d'encapsuler, de séparer son code en plusieurs methodes dans un objet, sinon, c'est très difficile de s'y retrouver.",
+        approachImage: "image/mockUps/pcMockUp.png",
+        role: "Front-End / UI",
+        projectDuration: "1 Semaine",
+        projectDate: "Octobre 2020",
+    },
+
+    // projectContent:[
+    //     project1 = {
+    //         generatePageContent : function(){
+    //             projectSection.projectDynamicElements.landingPageTitle.textContent = "hey";
+    //         }
+    //     }
+    // ],
+
+    navBar : {
+        leftArrow : document.querySelector("#leftArrow"),
+        rightArrow : document.querySelector("#rightArrow"),
+        closeBtn : document.querySelector("#closeBtn"),
+
+        addListeners : function(){
+            this.leftArrow.addEventListener("click", function(){
+                alert("left");
+            });
+            this.rightArrow.addEventListener("click", function(){
+                alert("right");
+            });
+            this.closeBtn.addEventListener("click", function(){
+                alert("close");
+            });
+        },
+    },
+
+
+
+    initialise : function(){
+        this.navBar.addListeners();
+    },
+};
+
+projectSection.initialise();
+console.log(projectSection.projectDynamicElements.generatePageContent);
+projectSection.projectDynamicElements.generatePageContent(projectSection.project1);
