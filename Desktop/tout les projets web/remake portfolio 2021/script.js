@@ -26,7 +26,7 @@ let smokeOverlay = {
 
 };
 
-smokeOverlay.fadeOutSmoke();
+
 
 /*
     fadeOutSmoke : function(){
@@ -55,12 +55,10 @@ let landingPage = {
     
             this.down.addEventListener("click", function(){
                 mainObj.incrementIndex();
-                mainObj.changeBgUrl();
             });
     
             this.up.addEventListener("click", function(){
                 mainObj.decrementIndex();
-                mainObj.changeBgUrl();
             });
         },
     },
@@ -69,8 +67,28 @@ let landingPage = {
         contentContainer : document.querySelector("#contentContainer"),
         infoContainer : document.querySelector("#informationContainer"),
         description : document.querySelector(".contentDescription"),
+        listOfContent : document.querySelectorAll("#listOfContent li"),
         title : document.querySelector(".contentTitle"),
-        moreInfoBtn : document.querySelector(".moreInfo"),
+        moreInfoBtn : document.querySelectorAll(".moreInfo"),
+
+        changeInfo : function(){
+            this.listOfContent.forEach(function(element){
+                element.className = "";
+                element.classList.add("hiddenInfo");
+            });
+            console.log(landingPage.index);
+            this.listOfContent[landingPage.index].classList.add("showInfo");
+        },
+
+        addMoreInfoListenners : function(){
+            let mainObj = landingPage;
+            let self = this;
+            this.moreInfoBtn.forEach(function(element, index){
+                element.addEventListener("click", function(){
+                    self.mainObj.switchToProjectPage();
+                });
+            });
+        },
 
         addTouchListenners : function(){
             let mainObj = landingPage;
@@ -83,12 +101,10 @@ let landingPage = {
                 let yMoove = ev.changedTouches[0].clientY;
                 if(yMoove - mainObj.touchVar.touchStartY > 150){
                     mainObj.decrementIndex();
-                    mainObj.changeBgUrl();
                     mainObj.touchVar.touchStartY = yMoove;
                     }
                 if(yMoove - mainObj.touchVar.touchStartY < -150){
                     mainObj.incrementIndex();
-                    mainObj.changeBgUrl();
                     mainObj.touchVar.touchStartY = yMoove;
                 }
             });
@@ -122,8 +138,8 @@ let landingPage = {
 
                 element.addEventListener("click", function(){
                     self.mainObj.index = index;
-                    self.mainObj.changeBgUrl();
                     self.saveLastClickedIndex(index);
+                    self.mainObj.change();
                 });
                 
             });
@@ -157,9 +173,23 @@ let landingPage = {
         bgContainer : document.querySelector("#background"),
         bgStyle : document.querySelector("#background").style,
         bgUrlList : ["background1.jpg", "background2.jpg", "background3.jpg", "background4.jpg"],
+
         initialise : function(){
             this.mainObj = landingPage;
-            this.mainObj.changeBgUrl();
+            this.changeBgUrl();
+        },
+
+        changeBgUrl : function(){
+            let child = document.createElement("img");
+            child.style.display = "none";
+            child.classList.add("backgroundImage");
+            this.bgContainer.appendChild(child);
+            child.src = "image/background/background" + this.mainObj.index + ".jpg";
+    
+            child.onload = function(){
+                child.style.display = "block";
+                smokeOverlay.fadeOutSmoke();
+            }
         },
     },
 
@@ -172,28 +202,12 @@ let landingPage = {
         document.onwheel = (e) =>{
             if(e.deltaY > 0){
                 self.incrementIndex();
-                self.changeBgUrl();
             } else{
                 self.decrementIndex();
-                self.changeBgUrl();
             }
         }
     },
 
-
-
-    changeBgUrl : function(){
-        let child = document.createElement("img");
-        child.style.display = "none";
-        child.classList.add("backgroundImage");
-        this.bg.bgContainer.appendChild(child);
-        child.src = "image/background/background" + this.index + ".jpg";
-
-        child.onload = function(){
-            child.style.display = "block";
-            smokeOverlay.fadeOutSmoke();
-        }
-    },
 
     incrementIndex : function(){
         if(this.index == this.bg.bgUrlList.length-1){
@@ -207,7 +221,10 @@ let landingPage = {
             this.navIndex.selectThisNavIndex(this.index);
             this.navIndex.savedIndex = this.index;
         }
+        this.change();
     },
+
+
 
     decrementIndex : function(){
         let indexZero = 0;
@@ -222,20 +239,28 @@ let landingPage = {
             this.navIndex.selectThisNavIndex(this.index);
             this.navIndex.savedIndex = this.index;
         }
+        this.change();
+    },
+
+    change: function(){
+        this.info.changeInfo();
+        this.bg.changeBgUrl();
+
     },
 
     initialise: function(){
         this.bg.initialise();
         this.navIndex.initialise();
+        this.navIndex.addNavIndexListenners();
+        this.addWheelListenners();
+        this.arrow.addArrowListenners();
+        this.info.addMoreInfoListenners();
+        this.info.addTouchListenners();
     },  
 
 };
 
 
-landingPage.navIndex.addNavIndexListenners();
-landingPage.addWheelListenners();
-landingPage.arrow.addArrowListenners();
-landingPage.info.addTouchListenners();
 landingPage.initialise();
 
 
