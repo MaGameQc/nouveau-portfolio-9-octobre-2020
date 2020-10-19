@@ -28,13 +28,20 @@ html{
 #background{
     height: 100vh;
     width: 100%;
-    background-image: url("image/background/background0.jpg");
+    /* background-image: url("image/background/background0.jpg"); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     position: absolute;
     z-index: -1;
     filter: grayscale(100%) brightness(30%) contrast(110%);
+}
+
+.backgroundImage{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    object-fit : cover;
 }
 
 #colorBackgroundOverlay{
@@ -64,7 +71,7 @@ html{
     height: 300%;
 }
 
-.smokeTest{
+.smokeImgContainer{
     width: 100%;
     height: 100%;
     /* background-color: dimgray; */
@@ -460,78 +467,78 @@ animation: indexHovered .3s ease-in-out forwards;
 
 
 
-.smokeTest:nth-child(1){
+.fadeOutSmoke:nth-child(1){
     position: relative;
     animation: fadeOut1 1.2s  linear forwards;
 }
-.smokeTest:nth-child(2){
+.fadeOutSmoke:nth-child(2){
     position: relative;
     animation: fadeOut2 1.2s  linear forwards;
 }
-.smokeTest:nth-child(3){
+.fadeOutSmoke:nth-child(3){
     position: relative;
     animation: fadeOut3 1.2s  linear forwards;
 }
-.smokeTest:nth-child(4){
+.fadeOutSmoke:nth-child(4){
     position: relative;
     animation: fadeOut4 1.2s  linear forwards;
 }
-.smokeTest:nth-child(5){
+.fadeOutSmoke:nth-child(5){
     position: relative;
     animation: fadeOut5 1.2s  linear forwards;
 }
-.smokeTest:nth-child(6){
+.fadeOutSmoke:nth-child(6){
     position: relative;
     animation: fadeOut6 1.2s  linear forwards;
 }
 
 
-.smokeTest:nth-child(7){
+.fadeOutSmoke:nth-child(7){
     position: relative;
     animation: fadeOut7 1.2s  linear forwards;
 }
 
-.smokeTest:nth-child(8){
+.fadeOutSmoke:nth-child(8){
     position: relative;
     animation: fadeOut8 1.2s  linear forwards;
 }
 
-.smokeTest:nth-child(9){
+.fadeOutSmoke:nth-child(9){
     position: relative;
     animation: fadeOut9 1.2s  linear forwards;
 }
 
-.smokeTest:nth-child(10){
+.fadeOutSmoke:nth-child(10){
     position: relative;
     animation: fadeOut10 1.2s  linear forwards;
 }
 
-.smokeTest:nth-child(11){
+.fadeOutSmoke:nth-child(11){
     position: relative;
     animation: fadeOut11 1.2s  linear forwards;
 }
 
-.smokeTest:nth-child(12){
+.fadeOutSmoke:nth-child(12){
     position: relative;
     animation: fadeOut12 1.2s  linear forwards;
 }
 
-.smokeTest:nth-child(13){
+.fadeOutSmoke:nth-child(13){
     position: relative;
     animation: fadeOut13 1.2s  linear forwards;
 }
 
-.smokeTest:nth-child(14){
+.fadeOutSmoke:nth-child(14){
     position: relative;
     animation: fadeOut14 1.2s  linear forwards;
 }
 
-.smokeTest:nth-child(15){
+.fadeOutSmoke:nth-child(15){
     position: relative;
     animation: fadeOut15 1.2s  linear forwards;
 }
 
-.smokeTest:nth-child(16){
+.fadeOutSmoke:nth-child(16){
     position: relative;
     animation: fadeOut16 1.2s  linear forwards;
 }
