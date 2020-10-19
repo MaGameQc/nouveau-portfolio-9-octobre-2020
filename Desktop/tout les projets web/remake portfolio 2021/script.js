@@ -11,6 +11,20 @@ let landingPage = {
         container: document.querySelector("#btnContainer"),
         up : document.querySelector("#up"),
         down : document.querySelector("#down"),
+
+        addArrowListenners : function(){
+            let mainObj = landingPage;
+    
+            this.down.addEventListener("click", function(){
+                mainObj.incrementIndex();
+                mainObj.changeBgUrl();
+            });
+    
+            this.up.addEventListener("click", function(){
+                mainObj.decrementIndex();
+                mainObj.changeBgUrl();
+            });
+        },
     },
 
     info : {
@@ -19,14 +33,83 @@ let landingPage = {
         description : document.querySelector(".contentDescription"),
         title : document.querySelector(".contentTitle"),
         moreInfoBtn : document.querySelector(".moreInfo"),
+
+        addTouchListenners : function(){
+            let mainObj = landingPage;
+            this.contentContainer.addEventListener("touchstart", function(ev){
+                let y = ev.touches[0].clientY;
+                mainObj.touchVar.touchStartY = y;
+            });
+    
+            this.contentContainer.addEventListener("touchmove", function(ev){
+                let yMoove = ev.changedTouches[0].clientY;
+                if(yMoove - mainObj.touchVar.touchStartY > 150){
+                    mainObj.decrementIndex();
+                    mainObj.changeBgUrl();
+                    mainObj.touchVar.touchStartY = yMoove;
+                    }
+                if(yMoove - mainObj.touchVar.touchStartY < -150){
+                    mainObj.incrementIndex();
+                    mainObj.changeBgUrl();
+                    mainObj.touchVar.touchStartY = yMoove;
+                }
+            });
+        },
     },
 
-    indexNav : {
+    navIndex : {
+        savedIndex : 0,
         container : document.querySelector("#indexContainer"),
         allListItem : document.querySelectorAll("#indexContainer li"),
         allLineState : document.querySelectorAll("#indexContainer li  .lineState"),
         allLine : document.querySelectorAll("#indexContainer li  .line"),
+
+        initialiseNavIndex : function(){
+            this.mainObj = landingPage;
+            this.selectThisNavIndex(this.savedIndex);
+        },
+
+        addNavIndexListenners : function(){
+            const self = this;
+            this.allListItem.forEach(function(element, index){
+                element.addEventListener("mouseenter", function(){
+                    self.deselectLastSelectedNavIndex(self.savedIndex);
+                    self.selectThisNavIndex(index);
+                });
+
+                element.addEventListener("mouseleave", function(){
+                    self.deselectLastSelectedNavIndex(index);
+                    self.resetNavIndexToLastClicked();
+                });
+
+                element.addEventListener("click", function(){
+                    self.mainObj.index = index;
+                    self.mainObj.changeBgUrl();
+                    self.saveLastClickedIndex(index);
+                });
+                
+            });
+        },
+
+        saveLastClickedIndex : function(index){
+            this.savedIndex = index;
+        },
+
+        resetNavIndexToLastClicked : function(){
+            this.selectThisNavIndex(this.savedIndex);
+        },
+
+        selectThisNavIndex(index){
+            this.allLine[index].classList.add("hoveredLine");
+            this.allLineState[index].innerHTML = (index + 1) + "/" + this.allLine.length;
+        },
+
+        deselectLastSelectedNavIndex : function(index){
+            this.allLine[index].classList.remove("hoveredLine");
+            this.allLineState[index].innerHTML = "";
+        },
     },
+
 
     footer : {
 
@@ -55,53 +138,24 @@ let landingPage = {
         }
     },
 
-    addArrowListenners : function(){
-        let self = landingPage;
 
-        self.arrow.down.addEventListener("click", function(){
-            self.incrementIndex();
-            self.changeBgUrl();
-        });
-
-        self.arrow.up.addEventListener("click", function(){
-            self.decrementIndex();
-            self.changeBgUrl();
-        });
-    },
-
-    addTouchListenners : function(){
-        let self = this;
-        this.info.contentContainer.addEventListener("touchstart", function(ev){
-            let y = ev.touches[0].clientY;
-            self.touchVar.touchStartY = y;
-        });
-
-        this.info.contentContainer.addEventListener("touchmove", function(ev){
-            let yMoove = ev.changedTouches[0].clientY;
-            if(yMoove - self.touchVar.touchStartY > 150){
-                    self.incrementIndex();
-                    self.changeBgUrl();
-                    self.touchVar.touchStartY = yMoove;
-                }
-            if(yMoove - bg.touchStartClientY < -150){
-                self.decrementIndex();
-                self.changeBgUrl();
-                self.touchVar.touchStartY = yMoove;
-            }
-        });
-
-        
-    },
 
     changeBgUrl : function(){
+
         this.bg.bgStyle.backgroundImage = "url('image/background/background" + this.index + ".jpg')";
     },
 
     incrementIndex : function(){
         if(this.index == this.bg.bgUrlList.length-1){
             this.index = this.bg.bgUrlList.length-1;
+            this.navIndex.deselectLastSelectedNavIndex(this.index);
+            this.navIndex.selectThisNavIndex(this.index);
+            this.navIndex.savedIndex = this.index;
         }else{
             this.index ++
+            this.navIndex.deselectLastSelectedNavIndex(this.index-1);
+            this.navIndex.selectThisNavIndex(this.index);
+            this.navIndex.savedIndex = this.index;
         }
     },
 
@@ -109,8 +163,14 @@ let landingPage = {
         let indexZero = 0;
         if(this.index == indexZero){
             this.index = indexZero;
+            this.navIndex.deselectLastSelectedNavIndex(this.index);
+            this.navIndex.selectThisNavIndex(this.index);
+            this.navIndex.savedIndex = this.index;
         }else{
             this.index --
+            this.navIndex.deselectLastSelectedNavIndex(this.index+1);
+            this.navIndex.selectThisNavIndex(this.index);
+            this.navIndex.savedIndex = this.index;
         }
     },
 
@@ -120,9 +180,12 @@ let landingPage = {
 
 };
 
+
+landingPage.navIndex.addNavIndexListenners();
+landingPage.navIndex.initialiseNavIndex();
 landingPage.addWheelListenners();
-landingPage.addArrowListenners();
-landingPage.addTouchListenners();
+landingPage.arrow.addArrowListenners();
+landingPage.info.addTouchListenners();
 landingPage.show();
 
 
