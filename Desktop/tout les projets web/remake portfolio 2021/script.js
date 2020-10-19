@@ -80,7 +80,6 @@ let landingPage = {
                 element.className = "";
                 element.classList.add("hiddenInfo");
             });
-            console.log(landingPage.index);
             this.listOfContent[landingPage.index].classList.add("showInfo");
         },
 
@@ -277,7 +276,6 @@ let landingPage = {
 
 
     switchToProjectPage : function(index){
-        console.log( "testtesttesttesttesttesttesttesttesttest");
 
         this.removeEventListeners();
         smokeOverlay.fadeInSmoke();
@@ -313,17 +311,17 @@ projectSection = {
         landingPageInfo : document.querySelector(".projectDescription"),
         landingPageTryBtn : document.querySelector(".tryLink"),
       
-        aboutProjectTitle : document.querySelector(".projectDescription"),
-        aboutProjectDescription : document.querySelector(".projectDescription"),
-        aboutProjectImage : document.querySelector(".projectDescription"),
+        aboutProjectTitle : document.querySelector(".aboutTitle"),
+        aboutProjectDescription : document.querySelector(".aboutDescriptionText"),
+        aboutProjectImage : document.querySelector(".mobileImage"),
        
-        approachTitle : document.querySelector(".projectDescription"),
-        approachDescription : document.querySelector(".projectDescription"),
-        approachImage : document.querySelector(".projectDescription"),
+        approachTitle : document.querySelector(".approachTitle"),
+        approachDescription : document.querySelector(".approachDescriptionText"),
+        approachImage : document.querySelector(".pcImage"),
         
-        role : document.querySelector(".projectDescription"),
-        projectDuration: document.querySelector(".projectDescription"),
-        projectDate: document.querySelector(".projectDescription"), 
+        role : document.querySelector(".projectRole"),
+        projectDuration: document.querySelector(".projectDuration"),
+        projectDate: document.querySelector(".projectDate"), 
         
         generatePageContent : function(project){
             this.landingPageTitle.textContent = project.landingPageTitle;    
@@ -332,11 +330,11 @@ projectSection = {
 
             this.aboutProjectTitle.textContent = project.aboutProjectTitle;
             this.aboutProjectDescription.textContent = project.aboutProjectDescription;
-            this.aboutProjectImage.textContent = project.aboutProjectImage;
+            this.aboutProjectImage.src = project.aboutProjectImage;
 
             this.approachTitle.textContent = project.approachTitle;
             this.approachDescription.textContent = project.approachDescription;
-            this.approachImage.textContent = project.approachImage;
+            this.approachImage.src = project.approachImage;
 
             this.role.textContent = project.role;
             this.projectDuration = project.projectDuration;
@@ -346,58 +344,55 @@ projectSection = {
         
     },
 
-    project1 : {
-        landingPageTitle: "BurgerMaker",
-        landingPageInfo: "C'est une petite application web qui vous permet de choisir l'animation de votre hamburger icon préféré, copier son code HTML et CSS, puis le coller dans votre propre projet.",
-        landingPageTryBtn: "https://magame.ca/hamburgerMaker/",
-        aboutProjectTitle: "C'est Quoi BurgerMaker ?",
-        aboutProjectDescription: "en tant que développeur, une des choses que j'aime bien faire sont les hamburger icons. ce fameux bouton qui est toujours là à nous attendre si on va sur un site web avec un appareille mobile. Puisque je cherchais un projet qui me ferait pratiquer Javascript, je me suis dit, bah je devrais coder une liste de ces icônes, tu choisie celle que tu veut sur le site, et ca te génère le code HTML et CSS afin de pouvoir t'en servir dans tes projets. Ce projet m'en à appris plus sur la programmation orientée objet, qu'il est important d'encapsuler, de séparer son code en plusieurs methodes, sinon, c'est très difficile de s'y retrouver.",
-        aboutProjectImage: "image/mockUps/iphoneMockUpPortrait.png",
-        approachTitle: "Approche",
-        approachDescription: "en tant que développeur, une des choses que j'aime bien faire sont les hamburger icons. ce fameux bouton qui est toujours là à nous attendre si on va sur un site web avec un appareille mobile. Puisque je cherchais un projet qui me ferait pratiquer Javascript, je me suis dit, bah je devrais coder une liste de ces icônes, tu choisie celle que tu veut sur le site, et ca te génère le code HTML et CSS afin de pouvoir t'en servir dans tes projets. Ce projet m'en à appris plus sur la programmation orientée objet, qu'il est important d'encapsuler, de séparer son code en plusieurs methodes dans un objet, sinon, c'est très difficile de s'y retrouver.",
-        approachImage: "image/mockUps/pcMockUp.png",
-        role: "Front-End / UI",
-        projectDuration: "1 Semaine",
-        projectDate: "Octobre 2020",
-    },
+    projects : [
+        project0 = {
+            landingPageTitle: "BurgerMaker",
+            landingPageInfo: "C'est une petite application web qui vous permet de choisir l'animation de votre hamburger icon préféré, copier son code HTML et CSS, puis le coller dans votre propre projet.",
+            landingPageTryBtn: "https://magame.ca/hamburgerMaker/",
+            aboutProjectTitle: "C'est Quoi BurgerMaker ?",
+            aboutProjectDescription: "en tant que développeur, une des choses que j'aime bien faire sont les hamburger icons. ce fameux bouton qui est toujours là à nous attendre si on va sur un site web avec un appareille mobile. Puisque je cherchais un projet qui me ferait pratiquer Javascript, je me suis dit, bah je devrais coder une liste de ces icônes, tu choisie celle que tu veut sur le site, et ca te génère le code HTML et CSS afin de pouvoir t'en servir dans tes projets. Ce projet m'en à appris plus sur la programmation orientée objet, qu'il est important d'encapsuler, de séparer son code en plusieurs methodes, sinon, c'est très difficile de s'y retrouver.",
+            aboutProjectImage: "image/mockUps/iphoneMockUpPortrait.png",
+            approachTitle: "Approche",
+            approachDescription: "en tant que développeur, une des choses que j'aime bien faire sont les hamburger icons. ce fameux bouton qui est toujours là à nous attendre si on va sur un site web avec un appareille mobile. Puisque je cherchais un projet qui me ferait pratiquer Javascript, je me suis dit, bah je devrais coder une liste de ces icônes, tu choisie celle que tu veut sur le site, et ca te génère le code HTML et CSS afin de pouvoir t'en servir dans tes projets. Ce projet m'en à appris plus sur la programmation orientée objet, qu'il est important d'encapsuler, de séparer son code en plusieurs methodes dans un objet, sinon, c'est très difficile de s'y retrouver.",
+            approachImage: "image/mockUps/pcMockUp.png",
+            role: "Front-End / UI",
+            projectDuration: "1 Semaine",
+            projectDate: "Octobre 2020",
+        },
+    
+        project1 = {
+            landingPageTitle: "BurgerMaker;salkfjslfjsa",
+            landingPageInfo: "test",
+            landingPageTryBtn: "https://magame.ca/hamburgerMaker/",
+            aboutProjectTitle: "hey hey",
+            aboutProjectDescription: "test de retest",
+            aboutProjectImage: "image/mockUps/iphoneMockUpPortrait.png",
+            approachTitle: "Approche",
+            approachDescription: "en tant que développeur, une des choses que j'aime bien faire sont les hamburger icons. ce fameux bouton qui est toujours là à nous attendre si on va sur un site web avec un appareille mobile. Puisque je cherchais un projet qui me ferait pratiquer Javascript, je me suis dit, bah je devrais coder une liste de ces icônes, tu choisie celle que tu veut sur le site, et ca te génère le code HTML et CSS afin de pouvoir t'en servir dans tes projets. Ce projet m'en à appris plus sur la programmation orientée objet, qu'il est important d'encapsuler, de séparer son code en plusieurs methodes dans un objet, sinon, c'est très difficile de s'y retrouver.",
+            approachImage: "image/mockUps/pcMockUp.png",
+            role: "Front-End / UI",
+            projectDuration: "1 Semaine",
+            projectDate: "Octobre 2020",
+        },
+    
+        project2 = {
+            landingPageTitle: "piece of shhhhhh",
+            landingPageInfo: "C'est une petite application web qui vous permet de choisir l'animation de votre hamburger icon préféré, copier son code HTML et CSS, puis le coller dans votre propre projet.",
+            landingPageTryBtn: "https://magame.ca/hamburgerMaker/",
+            aboutProjectTitle: "C'est Quoi BurgerMaker ?",
+            aboutProjectDescription: "en tant que développeur, une des choses que j'aime bien faire sont les hamburger icons. ce fameux bouton qui est toujours là à nous attendre si on va sur un site web avec un appareille mobile. Puisque je cherchais un projet qui me ferait pratiquer Javascript, je me suis dit, bah je devrais coder une liste de ces icônes, tu choisie celle que tu veut sur le site, et ca te génère le code HTML et CSS afin de pouvoir t'en servir dans tes projets. Ce projet m'en à appris plus sur la programmation orientée objet, qu'il est important d'encapsuler, de séparer son code en plusieurs methodes, sinon, c'est très difficile de s'y retrouver.",
+            aboutProjectImage: "image/mockUps/iphoneMockUpPortrait.png",
+            approachTitle: "Approche",
+            approachDescription: "en tant que développeur, une des choses que j'aime bien faire sont les hamburger icons. ce fameux bouton qui est toujours là à nous attendre si on va sur un site web avec un appareille mobile. Puisque je cherchais un projet qui me ferait pratiquer Javascript, je me suis dit, bah je devrais coder une liste de ces icônes, tu choisie celle que tu veut sur le site, et ca te génère le code HTML et CSS afin de pouvoir t'en servir dans tes projets. Ce projet m'en à appris plus sur la programmation orientée objet, qu'il est important d'encapsuler, de séparer son code en plusieurs methodes dans un objet, sinon, c'est très difficile de s'y retrouver.",
+            approachImage: "image/mockUps/pcMockUp.png",
+            role: "Front-End / UI",
+            projectDuration: "1 Semaine",
+            projectDate: "Octobre 2020",
+        },
+    ],
 
-    project2 : {
-        landingPageTitle: "BurgerMaker;salkfjslfjsa",
-        landingPageInfo: "C'est une petite application web qui vous permet de choisir l'animation de votre hamburger icon préféré, copier son code HTML et CSS, puis le coller dans votre propre projet.",
-        landingPageTryBtn: "https://magame.ca/hamburgerMaker/",
-        aboutProjectTitle: "C'est Quoi BurgerMaker ?",
-        aboutProjectDescription: "en tant que développeur, une des choses que j'aime bien faire sont les hamburger icons. ce fameux bouton qui est toujours là à nous attendre si on va sur un site web avec un appareille mobile. Puisque je cherchais un projet qui me ferait pratiquer Javascript, je me suis dit, bah je devrais coder une liste de ces icônes, tu choisie celle que tu veut sur le site, et ca te génère le code HTML et CSS afin de pouvoir t'en servir dans tes projets. Ce projet m'en à appris plus sur la programmation orientée objet, qu'il est important d'encapsuler, de séparer son code en plusieurs methodes, sinon, c'est très difficile de s'y retrouver.",
-        aboutProjectImage: "image/mockUps/iphoneMockUpPortrait.png",
-        approachTitle: "Approche",
-        approachDescription: "en tant que développeur, une des choses que j'aime bien faire sont les hamburger icons. ce fameux bouton qui est toujours là à nous attendre si on va sur un site web avec un appareille mobile. Puisque je cherchais un projet qui me ferait pratiquer Javascript, je me suis dit, bah je devrais coder une liste de ces icônes, tu choisie celle que tu veut sur le site, et ca te génère le code HTML et CSS afin de pouvoir t'en servir dans tes projets. Ce projet m'en à appris plus sur la programmation orientée objet, qu'il est important d'encapsuler, de séparer son code en plusieurs methodes dans un objet, sinon, c'est très difficile de s'y retrouver.",
-        approachImage: "image/mockUps/pcMockUp.png",
-        role: "Front-End / UI",
-        projectDuration: "1 Semaine",
-        projectDate: "Octobre 2020",
-    },
+    
 
-    project3 : {
-        landingPageTitle: "BurgerMaker;salkfjslfjsa",
-        landingPageInfo: "C'est une petite application web qui vous permet de choisir l'animation de votre hamburger icon préféré, copier son code HTML et CSS, puis le coller dans votre propre projet.",
-        landingPageTryBtn: "https://magame.ca/hamburgerMaker/",
-        aboutProjectTitle: "C'est Quoi BurgerMaker ?",
-        aboutProjectDescription: "en tant que développeur, une des choses que j'aime bien faire sont les hamburger icons. ce fameux bouton qui est toujours là à nous attendre si on va sur un site web avec un appareille mobile. Puisque je cherchais un projet qui me ferait pratiquer Javascript, je me suis dit, bah je devrais coder une liste de ces icônes, tu choisie celle que tu veut sur le site, et ca te génère le code HTML et CSS afin de pouvoir t'en servir dans tes projets. Ce projet m'en à appris plus sur la programmation orientée objet, qu'il est important d'encapsuler, de séparer son code en plusieurs methodes, sinon, c'est très difficile de s'y retrouver.",
-        aboutProjectImage: "image/mockUps/iphoneMockUpPortrait.png",
-        approachTitle: "Approche",
-        approachDescription: "en tant que développeur, une des choses que j'aime bien faire sont les hamburger icons. ce fameux bouton qui est toujours là à nous attendre si on va sur un site web avec un appareille mobile. Puisque je cherchais un projet qui me ferait pratiquer Javascript, je me suis dit, bah je devrais coder une liste de ces icônes, tu choisie celle que tu veut sur le site, et ca te génère le code HTML et CSS afin de pouvoir t'en servir dans tes projets. Ce projet m'en à appris plus sur la programmation orientée objet, qu'il est important d'encapsuler, de séparer son code en plusieurs methodes dans un objet, sinon, c'est très difficile de s'y retrouver.",
-        approachImage: "image/mockUps/pcMockUp.png",
-        role: "Front-End / UI",
-        projectDuration: "1 Semaine",
-        projectDate: "Octobre 2020",
-    },
-
-    // projectContent:[
-    //     project1 = {
-    //         generatePageContent : function(){
-    //             projectSection.projectDynamicElements.landingPageTitle.textContent = "hey";
-    //         }
-    //     }
-    // ],
 
     navBar : {
         leftArrow : document.querySelector("#leftArrow"),
@@ -405,18 +400,33 @@ projectSection = {
         closeBtn : document.querySelector("#closeBtn"),
 
         addListeners : function(){
+            let mainObj = projectSection;
+
             this.leftArrow.addEventListener("click", function(){
-                alert("left");
+                smokeOverlay.fadeOutSmoke();
+                mainObj.previousProject();
             });
             this.rightArrow.addEventListener("click", function(){
-                alert("right");
+                smokeOverlay.fadeOutSmoke();
+                mainObj.nextProject();
             });
             this.closeBtn.addEventListener("click", function(){
-                alert("close");
             });
         },
     },
 
+
+    previousProject : function(){
+        console.log( "projectSection.project" + this.index);
+        this.index --
+        this.projectDynamicElements.generatePageContent(projectSection.projects[this.index]);
+    },
+
+    nextProject : function(){
+        console.log( "projectSection.project" + this.index);
+        this.index ++
+        this.projectDynamicElements.generatePageContent(projectSection.projects[this.index]);
+    },
 
 
     initialise : function(){
@@ -426,4 +436,4 @@ projectSection = {
 
 projectSection.initialise();
 console.log(projectSection.projectDynamicElements.generatePageContent);
-projectSection.projectDynamicElements.generatePageContent(projectSection.project1);
+projectSection.projectDynamicElements.generatePageContent(projectSection.projects[projectSection.index]);
