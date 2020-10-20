@@ -30,19 +30,6 @@ let smokeOverlay = {
 
 
 
-/*
-    fadeOutSmoke : function(){
-        let element = this.smokeOverlayImg;
-        let parent = element[0].parentElement;
-        parent.innerHTML = "";
-        element.forEach(function(element){
-            parent.appendChild(element);
-        });
-        // important, had no choice to get rid of all elements in parent clone them et re append them becaus otherwise, i've seen that there is an problem with css animation
-        //when you try to remove a class and re apply it to an element to re animate this element, its not stable. 
-    },
-*/
-
 let landingPage = {
     index : 0,
     removeListener : false,
@@ -204,12 +191,13 @@ let landingPage = {
         let self = this;
         document.addEventListener("wheel", function listenToWheel (e){
             if(self.removeListener == true){
-                document.removeEventListener("wheel", listenToWheel);
+                console.log("removed");
             }
             if(self.removeListener == false){
-                if(e.deltaY > 0){
+                if(e.deltaY >= 50){
                     self.incrementIndex();
-                } else{
+                } 
+                else if(e.deltaY <= -50){
                     self.decrementIndex();
                 }
             }
@@ -268,16 +256,18 @@ let landingPage = {
         this.info.addTouchListeners();
     },  
 
-    removeEventListeners: function(){
+    turnOffEventListeners: function(){
         this.removeListener = true;
-        this.addWheelListeners();
+    },
 
+    turnOnEventListeners: function(){
+        this.removeListener = false;
     },
 
 
     switchToProjectPage : function(index){
 
-        this.removeEventListeners();
+        this.turnOffEventListeners();
         smokeOverlay.fadeInSmoke();
         smokeOverlay.main.style.zIndex = "1";
         setTimeout(function(){
@@ -287,13 +277,6 @@ let landingPage = {
             smokeOverlay.fadeOutSmoke();
             smokeOverlay.main.style.zIndex = "0";
         }, 2000);
-
-        
-        
-        
-        if(index == 0){
-            
-        }
     },
 
 };
@@ -395,12 +378,14 @@ projectSection = {
 
 
     navBar : {
+        container : document.querySelector(".projectFixedNavBar"),
         leftArrow : document.querySelector("#leftArrow"),
         rightArrow : document.querySelector("#rightArrow"),
         closeBtn : document.querySelector("#closeBtn"),
 
         addListeners : function(){
             let mainObj = projectSection;
+            let self = this;
 
             this.leftArrow.addEventListener("click", function(){
                 smokeOverlay.fadeOutSmoke();
@@ -411,7 +396,28 @@ projectSection = {
                 mainObj.nextProject();
             });
             this.closeBtn.addEventListener("click", function(){
+                mainObj.switchToLandingPage();
             });
+            document.addEventListener("scroll", function(){
+                self.checkNavIsOverlapingDescription();
+            });
+        },
+
+        checkNavIsOverlapingDescription: function(){
+            let triggerElement = document.querySelector(".landingVideoContainer").getBoundingClientRect().height;
+            let navBarHeight = this.container.getBoundingClientRect().height;
+            let navBarPosition = window.pageYOffset;
+            if(navBarPosition > triggerElement - navBarHeight){
+                this.leftArrow.style.color = "#0760fe";
+                this.rightArrow.style.color = "#0760fe";
+                this.closeBtn.style.color = "#0760fe";
+
+            }else{
+                this.leftArrow.style.color = "white";
+                this.rightArrow.style.color = "white";
+                this.closeBtn.style.color = "white";
+            }
+            
         },
     },
 
@@ -431,9 +437,26 @@ projectSection = {
 
     initialise : function(){
         this.navBar.addListeners();
+        this.projectDynamicElements.generatePageContent(projectSection.projects[projectSection.index]);
+    },
+
+    switchToLandingPage : function(){
+
+        smokeOverlay.fadeInSmoke();
+        smokeOverlay.main.style.zIndex = "1";
+        setTimeout(function(){
+            document.querySelector("#main").style.display = "grid";
+            document.querySelector("#background").style.display = "grid";
+            document.querySelector("#project").style.display = "none";
+            smokeOverlay.fadeOutSmoke();
+            smokeOverlay.main.style.zIndex = "-1";
+            landingPage.turnOnEventListeners();
+            
+        }, 2000);
+
     },
 };
 
+
+
 projectSection.initialise();
-console.log(projectSection.projectDynamicElements.generatePageContent);
-projectSection.projectDynamicElements.generatePageContent(projectSection.projects[projectSection.index]);
