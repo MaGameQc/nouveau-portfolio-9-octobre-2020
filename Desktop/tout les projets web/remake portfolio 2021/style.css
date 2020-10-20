@@ -1180,7 +1180,7 @@ video{
     height: 8rem;
     position: fixed;
     display: grid;
-    grid-template-columns: 15rem 1fr 15rem;
+    grid-template-columns: 5rem 1fr 5rem;
     padding: 3rem;
     font-size: 1.5rem;
     color: white;
@@ -1229,7 +1229,7 @@ video{
 
 @media only screen and (max-width: 768px) {
     .projectFixedNavBar{
-        grid-template-columns: auto auto 15rem;
+        grid-template-columns: auto auto auto;
     }
     .projectFixedNavBar div p{
         display: none;
@@ -1260,8 +1260,10 @@ video{
 
 
 
-.projectFixedNavBar div i:hover {
-    color: #0760fe;
+
+
+.fixedNavBarBtn:hover{
+    color: #0760fe !important;
     cursor: pointer;
 }
 
@@ -1383,7 +1385,7 @@ height: auto;
 }
 
 .boucyArrow{
-    animation: arrowBouncing 1s ease-in-out infinite;
+    animation: arrowBouncing .7s ease-in-out infinite;
 }
 
 @keyframes arrowBouncing{
