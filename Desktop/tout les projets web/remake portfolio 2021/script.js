@@ -325,8 +325,8 @@ projectSection = {
             this.approachImage.src = project.approachImage;
 
             this.role.textContent = project.role;
-            this.projectDuration = project.projectDuration;
-            this.projectDate = project.projectDate;
+            this.projectDuration.textContent = project.projectDuration;
+            this.projectDate.textContent = project.projectDate;
         },
         
         
