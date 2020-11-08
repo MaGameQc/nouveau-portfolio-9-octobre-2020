@@ -23,7 +23,13 @@
     <section class="convert">
         <textarea class="convert__textarea"></textarea>
         <button class="convert__button">convertir</button>
-        <button class="comma">test comma</button>
+        <select class="convert__select">
+            <option value="all">séparer tout</option>
+            <option value="comma">séparer virgules</option>
+            <option value="dot">séparer points</option>
+            <option value="quote">séparer guillemets</option>
+            <option value="linebreak">séparer saut de lignes</option>
+        </select>
     </section>
 
     <section class="convertedText">
@@ -48,11 +54,13 @@
         selected : [],
         index : 0,
         savedSelectedStatement : "",
+        selectedSeparator : document.querySelector(".convert__select").value,
         
         initialiseObject : ()=>{
             converter.parent.tabIndex = "0";
             converter.setValues();
             converter.addConvertBtnListener();
+            converter.addSelectedSeparatorListener();
         },
 
         setValues : ()=>{
@@ -63,9 +71,15 @@
         addConvertBtnListener : ()=>{
                 converter.button.addEventListener("click", ()=>{
                 converter.setValues();
-                converter.getRidOf.all();
+                converter.getRidOf(converter.selectedSeparator);
                 converter.convertText(converter.textareaContent);
                 converter.selectStatement();
+            });
+        },
+
+        addSelectedSeparatorListener : ()=>{
+            document.querySelector(".convert__select").addEventListener("change", ()=>{
+                converter.selectedSeparator = document.querySelector(".convert__select").value;
             });
         },
 
@@ -100,28 +114,35 @@
             converter.addStatementsListener();
         },
 
-        getRidOf:{
+        getRidOf: (selectedSeparator)=>{
+            switch (selectedSeparator) {
+                case "dot":
+                    converter.textareaContent = converter.textareaContent.split(/[.]/g);
+                    break;
 
-            comma : ()=>{
-                converter.textareaContent = converter.textareaContent.split(/[,]/g);
-            },
+                case "comma":
+                    converter.textareaContent = converter.textareaContent.split(/[,]/g);
+                    break;
 
-            dot : ()=>{
-                converter.textareaContent = converter.textareaContent.split(/[.]/g);
-            },
+                case "linebreak":
+                    converter.textareaContent = converter.textareaContent.split(/[\n]/g);
+                    break;
 
-            quote : ()=>{
-                converter.textareaContent = converter.textareaContent.split(/["]/g);
-            },
+                case "quote":
+                    converter.textareaContent = converter.textareaContent.split(/["]/g);
+                    break;
 
-            lineBreak : ()=>{
-                converter.textareaContent = converter.textareaContent.split(/[\n]/g);
-            },
-
-            all : ()=>{
+                case "all":
                 converter.textareaContent = converter.textareaContent.split(/[\n\.\,\"]/g);
+                    break;
+            
+                default:
+                    console.log("not a valid selection");
+                    break;
             }
         },
+
+
 
         appendToConvertedTextarea : (text)=>{
              let child = document.createElement("p");
