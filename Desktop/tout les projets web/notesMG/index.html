@@ -47,6 +47,7 @@
         statements : [],
         selected : [],
         index : 0,
+        savedSelectedStatement : "",
         
         initialiseObject : ()=>{
             converter.parent.tabIndex = "0";
@@ -63,17 +64,16 @@
                 converter.button.addEventListener("click", ()=>{
                 converter.setValues();
                 converter.getRidOf.all();
-                converter.appendToConvertedTextarea(converter.textareaContent);
+                converter.convertText(converter.textareaContent);
                 converter.selectStatement();
             });
         },
 
         addStatementsListener : ()=>{
             // ajouter methode on click
-            console.log(converter.statements.length + " shit");
+            // console.log(converter.statements.length + " shit");
             converter.statements.forEach((el, index)=>{
                 el.addEventListener("click", ()=>{
-                    // se servir de index parametre
                     let text = el.textContent;
                     converter.selected.push(text + "\n" + "\n");
                     let selected = document.querySelector(".selectedText__Textarea");
@@ -82,12 +82,20 @@
                         selected.value += el;
                     });
                 });
+
+                el.addEventListener("mouseenter", ()=>{
+                    let lastSelectedStatement = converter.parent.children[converter.index];
+                    converter.colorHandler.saveSelectedStatement(lastSelectedStatement);
+                    let changeIndex = converter.index = index;
+                    converter.colorHandler.changeStatementColorHover(el);
+                    console.log(converter.savedSelectedStatement);
+                });
             });
         },
 
-        appendToConvertedTextarea : (text)=>{
+        convertText : (text)=>{
             text.forEach((el)=>{
-               converter.addToSelectedStatements(el);
+               converter.appendToConvertedTextarea(el);
             });
             converter.addStatementsListener();
         },
@@ -115,7 +123,7 @@
             }
         },
 
-        addToSelectedStatements : (text)=>{
+        appendToConvertedTextarea : (text)=>{
              let child = document.createElement("p");
                 let textContent = document.createTextNode("- " + text);
                 child.classList.add("convertedText__container_phrase");
@@ -125,18 +133,36 @@
                 converter.parent.appendChild(child);
         },
 
-        selectStatement : ()=>{
 
-            let maxIndex = converter.statements.length-1;
-            converter.statements[converter.index].style.backgroundColor = "grey";
 
-            converter.parent.addEventListener("keydown", (e)=>{
-                e.preventDefault();
-                let key = e.keyCode;
-                if(key == 40){
-                    converter.statements[converter.index].style.backgroundColor = "white";
+        colorHandler : {
+            maxIndex : "",
+
+            saveSelectedStatement : (element)=>{
+                converter.savedSelectedStatement = element;
+            },
+
+            changeStatementColorHover : (element)=>{
+                converter.savedSelectedStatement.style.backgroundColor = "white";
+                element.style.backgroundColor = "grey";
+            },
+
+            changeStatementColorKeydown : (downOrUp)=>{
+                if(downOrUp == "down"){
+                    converter.colorHandler.saveSelectedStatement(converter.statements[converter.index]);
+                    converter.savedSelectedStatement.style.backgroundColor = "white";
+                    converter.index --
+                    converter.colorHandler.checkIndexSmaller();
+                }else{
+                    converter.colorHandler.saveSelectedStatement(converter.statements[converter.index]);
+                    converter.savedSelectedStatement.style.backgroundColor = "white";
                     converter.index ++
-                    if(converter.index > maxIndex){
+                    converter.colorHandler.checkIndexBigger();                    
+                }
+            },
+
+            checkIndexBigger : ()=>{
+                if(converter.index > converter.colorHandler.maxIndex){
                         converter.index = 0;
                         converter.statements[converter.index].style.backgroundColor = "grey";
                         converter.statements[converter.index].scrollIntoView();
@@ -144,23 +170,40 @@
                         converter.statements[converter.index].style.backgroundColor = "grey";
                         converter.statements[converter.index].scrollIntoView();
                     }
-                }
-                if(key == 38){
-                    converter.statements[converter.index].style.backgroundColor = "white";
-                    converter.index --
-                    if(converter.index < 0){
-                        converter.index = maxIndex;
+            },
+
+            checkIndexSmaller : () =>{
+                if(converter.index < 0){
+                        converter.index = converter.colorHandler.maxIndex;
                         converter.statements[converter.index].style.backgroundColor = "grey";
                         converter.statements[converter.index].scrollIntoView();
                     }else{
                         converter.statements[converter.index].style.backgroundColor = "grey";
                         converter.statements[converter.index].scrollIntoView();
                     }
+            },
+
+
+        },
+
+        selectStatement : ()=>{
+
+            converter.colorHandler.maxIndex = converter.statements.length-1;
+            converter.statements[converter.index].style.backgroundColor = "grey";
+
+            converter.parent.addEventListener("keydown", (e)=>{
+                e.preventDefault();
+                let key = e.keyCode;
+                if(key == 40){ //up
+                    converter.colorHandler.changeStatementColorKeydown("up");
+                }
+                if(key == 38){ //down
+                    converter.colorHandler.changeStatementColorKeydown("down");
                 }
 
-                if(key == 13){
+                if(key == 13){ //enter
                     let text = converter.statements[converter.index].textContent;
-                    converter.addToSelectedStatements(text);
+                    // converter.addToSelectedStatements(text);
                     converter.selected.push(text + "\n" + "\n");
                     let selected = document.querySelector(".selectedText__Textarea");
                     selected.value = "";
@@ -170,6 +213,7 @@
                 }
             });
         },
+
     }
 
     converter.initialiseObject();
