@@ -39,14 +39,13 @@
     </section>
 
     <section class="selectedText">
-        <textarea class="selectedText__Textarea"></textarea>
+        <textarea class="selectedText__Textarea" name="editor1"></textarea>
         <button class="selectedText__copyBtn">copier</button>
     </section>
 </body>
 </html>
 
 <script>
-
     let converter ={
         button : document.querySelector("button"),
         copyBtn : document.querySelector(".selectedText__copyBtn"),
@@ -218,6 +217,10 @@
 
         },
 
+        selectedTextareaHandler : {
+
+        },
+
         selectStatement : ()=>{
 
             converter.colorHandler.maxIndex = converter.statements.length-1;
@@ -236,17 +239,53 @@
                 if(key == 13){ //enter
                     let text = converter.statements[converter.index].textContent;
                     // converter.addToSelectedStatements(text);
-                    converter.selected.push(text + "\n" + "\n");
-                    let selected = document.querySelector(".selectedText__Textarea");
-                    selected.value = "";
-                    converter.selected.forEach((el)=>{
-                        selected.value += el;
-                    });
+                    if(converter.changeStatements.isAlreadyInStored(text  + "\n")){
+                        let indx = converter.selected.indexOf(text + "\n");
+                        converter.selected.splice(indx, 1);
+                        converter.addToSelectedTextarea();
+                    }else{
+                        converter.selected.push(text + "\n");
+                        converter.addToSelectedTextarea();
+                    }
                 }
             });
         },
 
+        addToSelectedTextarea : ()=>{
+            let selected = document.querySelector(".selectedText__Textarea");
+                    selected.value = "";
+                    converter.selected.forEach((el)=>{
+                        selected.value += el;
+                    });
+        },
+
+        changeStatements : {
+            isAlreadyInStored : (chosenStatement)=>{
+                let indx = converter.selected.indexOf(chosenStatement);
+                
+                if(indx != -1){
+                    return true
+                }else{
+                    return false
+                }
+                //     console.log(indx + " index" + " " + chosenStatement);
+                //     converter.selected.splice(indx);
+                //     converter.selected.pop();
+                //     converter.addToSelectedTextarea();
+                // }else{
+                    // converter.selected.push(chosenStatement + "\n");
+                    // converter.addToSelectedTextarea();
+                // }
+            },
+
+            deleteThisStatement : ()=>{
+
+            },
+        }
+
+
     }
+
 
     converter.initialiseObject();
 
