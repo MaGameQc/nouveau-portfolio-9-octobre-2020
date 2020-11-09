@@ -40,6 +40,7 @@
 
     <section class="selectedText">
         <textarea class="selectedText__Textarea"></textarea>
+        <button class="selectedText__copyBtn">copier</button>
     </section>
 </body>
 </html>
@@ -48,6 +49,7 @@
 
     let converter ={
         button : document.querySelector("button"),
+        copyBtn : document.querySelector(".selectedText__copyBtn"),
         textareaContent : "",
         parent : document.querySelector(".convertedText__container"),
         statements : [],
@@ -60,6 +62,7 @@
             converter.parent.tabIndex = "0";
             converter.setValues();
             converter.addConvertBtnListener();
+            converter.addCopyBtnListener();
             converter.addSelectedSeparatorListener();
         },
 
@@ -75,6 +78,14 @@
                 converter.convertText(converter.textareaContent);
                 converter.selectStatement();
             });
+        },
+
+        addCopyBtnListener : ()=>{
+                converter.copyBtn.addEventListener("click", ()=>{
+                    let textarea = document.querySelector(".selectedText__Textarea");
+                    textarea.select();
+                    document.execCommand("copy");
+                });
         },
 
         addSelectedSeparatorListener : ()=>{
